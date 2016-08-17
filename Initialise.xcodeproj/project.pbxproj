@@ -10,6 +10,8 @@
 		A5A94E141D6480C80036B822 /* Initialise.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A94E131D6480C80036B822 /* Initialise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5A94E1B1D6480C80036B822 /* Initialise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A94E101D6480C80036B822 /* Initialise.framework */; };
 		A5A94E201D6480C90036B822 /* InitialiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A94E1F1D6480C90036B822 /* InitialiseTests.swift */; };
+		A5A94E2B1D6481BC0036B822 /* UILabel+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A94E2A1D6481BC0036B822 /* UILabel+Initialise.swift */; };
+		A5A94E2D1D6487790036B822 /* LabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A94E2C1D6487790036B822 /* LabelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		A5A94E1A1D6480C80036B822 /* InitialiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InitialiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A94E1F1D6480C90036B822 /* InitialiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialiseTests.swift; sourceTree = "<group>"; };
 		A5A94E211D6480C90036B822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5A94E2A1D6481BC0036B822 /* UILabel+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Initialise.swift"; sourceTree = "<group>"; };
+		A5A94E2C1D6487790036B822 /* LabelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				A5A94E131D6480C80036B822 /* Initialise.h */,
+				A5A94E2A1D6481BC0036B822 /* UILabel+Initialise.swift */,
 				A5A94E151D6480C80036B822 /* Info.plist */,
 			);
 			path = Initialise;
@@ -81,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				A5A94E1F1D6480C90036B822 /* InitialiseTests.swift */,
+				A5A94E2C1D6487790036B822 /* LabelTests.swift */,
 				A5A94E211D6480C90036B822 /* Info.plist */,
 			);
 			path = InitialiseTests;
@@ -194,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A94E2B1D6481BC0036B822 /* UILabel+Initialise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A94E2D1D6487790036B822 /* LabelTests.swift in Sources */,
 				A5A94E201D6480C90036B822 /* InitialiseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +318,7 @@
 		A5A94E251D6480C90036B822 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +329,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.joshcampion.Initialise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A5A94E261D6480C90036B822 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
