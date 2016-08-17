@@ -12,6 +12,7 @@
 		A5A94E201D6480C90036B822 /* InitialiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A94E1F1D6480C90036B822 /* InitialiseTests.swift */; };
 		A5A94E2B1D6481BC0036B822 /* UILabel+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A94E2A1D6481BC0036B822 /* UILabel+Initialise.swift */; };
 		A5A94E2D1D6487790036B822 /* LabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A94E2C1D6487790036B822 /* LabelTests.swift */; };
+		A5C916321D64B85000EE5807 /* UIImageView+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C916311D64B85000EE5807 /* UIImageView+Initialise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		A5A94E211D6480C90036B822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5A94E2A1D6481BC0036B822 /* UILabel+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Initialise.swift"; sourceTree = "<group>"; };
 		A5A94E2C1D6487790036B822 /* LabelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTests.swift; sourceTree = "<group>"; };
+		A5C916311D64B85000EE5807 /* UIImageView+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Initialise.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				A5A94E131D6480C80036B822 /* Initialise.h */,
 				A5A94E2A1D6481BC0036B822 /* UILabel+Initialise.swift */,
+				A5C916311D64B85000EE5807 /* UIImageView+Initialise.swift */,
 				A5A94E151D6480C80036B822 /* Info.plist */,
 			);
 			path = Initialise;
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5A94E2B1D6481BC0036B822 /* UILabel+Initialise.swift in Sources */,
+				A5C916321D64B85000EE5807 /* UIImageView+Initialise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +393,7 @@
 				A5A94E261D6480C90036B822 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5A94E271D6480C90036B822 /* Build configuration list for PBXNativeTarget "InitialiseTests" */ = {
 			isa = XCConfigurationList;
@@ -397,6 +402,7 @@
 				A5A94E291D6480C90036B822 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

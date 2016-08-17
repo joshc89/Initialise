@@ -10,36 +10,9 @@ import UIKit
 
 /**
  
- Extension to allow configuration through a parameter object type. This allows for easier programmatic creation of [UILabel](https://developer.apple.com/reference/uikit/uilabel)s using 'inversion of control'.
+ Extension to allow configuration through a parameter object type. This allows for easier programmatic creation of [UILabel](https://developer.apple.com/reference/uikit/uilabel)s.
  
- 
- This allows for combined initialisation and configuration within a variable declaration, e.g.
- 
-    class MyViewController: UIViewController {
- 
-        let label = UILabel(configuration: UILabel.Configuration(textColor: UIColor.lightGrayColor(), numberOfLines: 0))
- 
-    }
- 
- vs configuring in a function body elsewhere in the class, e.g.
- 
-    class MyViewController: UIViewController {
- 
-        let label = UILabel()
- 
-        func viewDidLoad() {
-            super.viewDidLoad()
- 
-            label.textColor = UIColor.lightGrayColor()
-            label.numberOfLines = 0
-            label.translatesAutoresizingMaskIntoConstraints = false
-        }
-    }
- 
- This makes for clearer functions in the class.
-
- - seealso: ['Parameter Objects' by NatashaTheRobot](https://www.natashatherobot.com/parameter-objects/)
- - seealso: ['Configuration Models' by Jesse Squires](http://www.jessesquires.com/enums-as-configs/)
+ See the [ReadMe](https://github.com/joshc89/Initialise) for examples.
  
  */
 public extension UILabel {
@@ -121,13 +94,49 @@ public extension UILabel {
         }
     }
 
-    ///Convenience initialiser to programmatically create a label with a given set of properties.
- 
-    public convenience init(configuration: Configuration) {
+    /**
+     
+     Convenience initialiser to programmatically create a label with optional text and a given set of properties.
+     
+     - note: The inclusion of an optional text parameter is to mirror the initialiser `UIImageView.init(image: UIImage?)`. This is not included in the configuration as there is a the mutually exclusive `attributedText` property. It would also make it hard to define specific reusable configurations as styles, as the `text` / `attributedText` variables would always have to be `nil` with such configurations, and the user couldn't use a defined configuration and set the text at the same time.
+     
+     - parameter text: An optional string to set as the text of the label
+     - parameter configuration: The properties to assign to the label.
+     
+     - seealso: `init(attributedText:configuration:)`
+     
+     */
+    public convenience init(text: String? = nil, configuration: Configuration) {
         self.init()
+        self.text = text
         configureWith(configuration)
     }
     
+    /**
+     
+     Convenience initialiser to programmatically create a label with optional attributed text and a given set of properties.
+     
+     - note: The inclusion of an optional attributedtext parameter is to mirror the initialiser `UIImageView.init(image: UIImage?)`. This is not included in the configuration as there is a mutually exclusive `text` property. It would also make it hard to define specific reusable configurations as styles, as the `text` / `attributedText` variables would always have to be `nil` with such configurations, and the user couldn't use a defined configuration and set the text at the same time.
+     
+     - parameter attributedText: An optional attributed string to set as the text of the label
+     - parameter configuration: The properties to assign to the label.
+     
+     - seealso: `init(attributedText:configuration:)`
+     
+     */
+    public convenience init(attributedText: NSAttributedString? = nil, configuration: Configuration) {
+        self.init()
+        self.attributedText = attributedText
+        configureWith(configuration)
+    }
+    
+    /** 
+     
+     Configures the label based on the given configuration. This is called from `init(configuration:)` after initialisation.
+     
+     - parameter configuration: The collection of properties to assign to this label.
+
+    */
     public func configureWith(configuration: Configuration) {
         
         self.font = configuration.font
@@ -137,26 +146,4 @@ public extension UILabel {
         self.lineBreakMode = configuration.lineBreakMode
         self.translatesAutoresizingMaskIntoConstraints = configuration.translatesAutoresizingMaskIntoConstraints
     }
-}
-
-extension UILabel.Configuration {
- 
-    static var headlineConfiguration: UILabel.Configuration {
-        return UILabel.Configuration(textStyle: UIFontTextStyleHeadline,
-                                     textColor: UIColor.redColor(),
-                                     numberOfLines: 0)
-    }
-    
-    static func headlineConfiguration(alignment: NSTextAlignment = .Natural) -> UILabel.Configuration {
-        return UILabel.Configuration(textStyle: UIFontTextStyleHeadline,
-                                     textColor: UIColor.redColor(),
-                                     numberOfLines: 0)
-    }
-}
-
-class MyView: UIView {
-    
-    let headlineLabel = UILabel(configuration: UILabel.Configuration.headlineConfiguration)
-    
-    let centeredHeadlineLabel = UILabel(configuration: UILabel.Configuration.headlineConfiguration(.Center))
 }
