@@ -5,11 +5,41 @@
 
 Clean initialisation and configuration of Foundation and UIKit classes.
 
+## Features
+
+### TL;DR
+
+Create and configure programmatic UIKit components in concise initialisers:
+
+*Note: Swift 3 syntax is more concise*
+
+	let headline = UILabel(configuration: UILabel.Configuration(textStyle: UIFontTextStyleHeadline,  
+		numberOfLines: 0))
+		
+	let subheadline = UILabel(configuration: UILabel.Configuration(textStyle: UIFontTextStyleSubHeadline, 
+		textColor: UIColor.lightGrayColor(), 
+		numberOfLines: 0))
+	
+	let stack = UIStackView(configuration: UIStackView.Configuration(arrangedSubViews: [headline, subheadline],
+		axis: .Vertical,
+		spacing: 8.0))
+		
+		
+[Parameter Objects] are given for the following classes.
+
+* UIKit
+	* `UILabel`
+	* `UIImageView`
+	* `UIStackView`
+* Foundation
+
+If there are classes or parameters not covered please submit a pull request.
+
 ## Motivation
 
 ### Problem
 
-Programmatic UI can have advantages of Storyboards *Include details* however it can become cumbersome to configure all of the subviews if there are a lot of elements in the hierarchy. Configuring a single label might look something like this:
+Programmatic UI can have advantages over Storyboards *Include details* however it can become cumbersome to configure all of the subviews if there are a lot of elements in the hierarchy. Configuring a single label might look something like this:
 
     class MyViewController: UIViewController {
  
@@ -59,7 +89,7 @@ This puts configuration close to definition but still includes a lot of boilerpl
 
 ### Solution
 
-This library provides a collection of convenience initialisers for UIKit and Foundation classes using [Parameter Objects] as [Configuration Models] for each class. This allows for cleaner UI.
+This library provides a collection of convenience initialisers for UIKit and Foundation classes using [Parameter Objects] as [Configuration Models] for each class. This allows for cleaner UI code:
 
 	class MyViewController: UIViewController {
  
@@ -107,14 +137,6 @@ It also becomes possible to define fixed or flexible styles for your UI that you
 	}
 	
 This greatly simplifies programmatic UI creation allowing for cleaner code that is easier to write and reason about.
-	
-## Features
- 
-[Parameter Objects] are given for the following classes.
-
-* UILabel
-
-If there are classes or parameters not covered please submit a pull request.
 
 ## Credits
 

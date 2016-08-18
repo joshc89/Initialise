@@ -15,6 +15,8 @@
 		A5C916321D64B85000EE5807 /* UIImageView+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C916311D64B85000EE5807 /* UIImageView+Initialise.swift */; };
 		A5EBBF0C1D65A21800DED17F /* UIImageViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EBBF0B1D65A21800DED17F /* UIImageViewTests.swift */; };
 		A5EBBF0E1D65A25700DED17F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5EBBF0D1D65A25700DED17F /* Media.xcassets */; };
+		A5EBBF101D65A78900DED17F /* UIStackView+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EBBF0F1D65A78900DED17F /* UIStackView+Initialise.swift */; };
+		A5EBBF141D65AF6000DED17F /* UIStackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EBBF131D65AF6000DED17F /* UIStackViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		A5C916311D64B85000EE5807 /* UIImageView+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Initialise.swift"; sourceTree = "<group>"; };
 		A5EBBF0B1D65A21800DED17F /* UIImageViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewTests.swift; sourceTree = "<group>"; };
 		A5EBBF0D1D65A25700DED17F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		A5EBBF0F1D65A78900DED17F /* UIStackView+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Initialise.swift"; sourceTree = "<group>"; };
+		A5EBBF131D65AF6000DED17F /* UIStackViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 				A5A94E131D6480C80036B822 /* Initialise.h */,
 				A5A94E2A1D6481BC0036B822 /* UILabel+Initialise.swift */,
 				A5C916311D64B85000EE5807 /* UIImageView+Initialise.swift */,
+				A5EBBF0F1D65A78900DED17F /* UIStackView+Initialise.swift */,
 				A5A94E151D6480C80036B822 /* Info.plist */,
 			);
 			path = Initialise;
@@ -95,6 +100,7 @@
 				A5A94E1F1D6480C90036B822 /* InitialiseTests.swift */,
 				A5A94E2C1D6487790036B822 /* LabelTests.swift */,
 				A5EBBF0B1D65A21800DED17F /* UIImageViewTests.swift */,
+				A5EBBF131D65AF6000DED17F /* UIStackViewTests.swift */,
 				A5EBBF0D1D65A25700DED17F /* Media.xcassets */,
 				A5A94E211D6480C90036B822 /* Info.plist */,
 			);
@@ -211,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5A94E2B1D6481BC0036B822 /* UILabel+Initialise.swift in Sources */,
+				A5EBBF101D65A78900DED17F /* UIStackView+Initialise.swift in Sources */,
 				A5C916321D64B85000EE5807 /* UIImageView+Initialise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +229,7 @@
 				A5EBBF0C1D65A21800DED17F /* UIImageViewTests.swift in Sources */,
 				A5A94E2D1D6487790036B822 /* LabelTests.swift in Sources */,
 				A5A94E201D6480C90036B822 /* InitialiseTests.swift in Sources */,
+				A5EBBF141D65AF6000DED17F /* UIStackViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

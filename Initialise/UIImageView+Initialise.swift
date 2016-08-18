@@ -10,7 +10,7 @@ import UIKit
 
 /**
  
- Extension to allow configuration through a parameter object type. This allows for easier programmatic creation of [UIImageView](https://developer.apple.com/reference/uikit/uiimageview)s.
+ Extension to allow configuration through a parameter object type. This allows for easier programmatic creation of [UIImageViews](https://developer.apple.com/reference/uikit/uiimageview).
  
  See the [ReadMe](https://github.com/joshc89/Initialise) for examples.
  
@@ -27,7 +27,7 @@ public extension UIImageView {
      */
     public struct Configuration {
         
-        /// Represents a `UIImageViews`'s `image`.
+        /// Content of the view for this configuration. Represents a `UIImageViews`'s `image`.
         public let image: UIImage?
         
         /// Represents a `UIImageViews`'s `contentMode`.
@@ -81,7 +81,7 @@ public extension UIImageView {
     
     /**
      
-     Configures the image view based on the given configuration. This is called from `init(configuration:)` after initialisation.
+     Configures this image view based on the given configuration. This is called from `init(configuration:)` after initialisation.
      
      - parameter configuration: The collection of properties to assign to this image view.
      

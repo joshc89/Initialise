@@ -21,7 +21,7 @@ public enum Text {
 
 /**
  
- Extension to allow configuration through a parameter object type. This allows for easier programmatic creation of [UILabel](https://developer.apple.com/reference/uikit/uilabel)s.
+ Extension to allow configuration through a parameter object type. This allows for easier programmatic creation of [UILabels](https://developer.apple.com/reference/uikit/uilabel).
  
  See the [ReadMe](https://github.com/joshc89/Initialise) for examples.
  
@@ -38,7 +38,7 @@ public extension UILabel {
      */
     public struct Configuration {
         
-        /// Represents a `UILabel`'s `text` or `attributedText`.
+        /// Content of the view for this configuration. Represents a `UILabel`'s `text` or `attributedText`.
         public let text: Text?
         
         /// Represents a `UILabel`'s `font`.
