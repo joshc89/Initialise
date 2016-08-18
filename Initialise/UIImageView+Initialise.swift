@@ -27,14 +27,17 @@ public extension UIImageView {
      */
     public struct Configuration {
         
-        /// Represents a `UIImageViews`'s `contentMode`.
-        let contentMode: UIViewContentMode
+        /// Represents a `UIImageViews`'s `image`.
+        public let image: UIImage?
         
-        /// Represents a `UIImageViews`'s `isOpaque`.
-        let opaque: Bool
+        /// Represents a `UIImageViews`'s `contentMode`.
+        public let contentMode: UIViewContentMode
         
         /// Represents a `UIImageViews`'s `backgroundColor`.
-        let backgroundColor: UIColor?
+        public let backgroundColor: UIColor?
+        
+        /// Represents a `UIImageViews`'s `isOpaque`.
+        public let opaque: Bool
         
         /// Represents a `UIImageViews`'s `translatesAutoresizingMaskIntoConstraints`.
         public let translatesAutoresizingMaskIntoConstraints: Bool
@@ -43,17 +46,20 @@ public extension UIImageView {
          
          Default initialiser. Sets all properties.
          
+         - parameter image: Default value is `nil`. 
          - parameter contentMode: Default value is `.ScaleToFill`.
          - parameter backgroundColor: Default value is `nil`.
          - parameter opaque: Default value is `false`.
          - parameter translatesAutoresizingMaskIntoConstraints: Default value is `false`.
          
          */
-        init(contentMode: UIViewContentMode = .ScaleToFill,
+        public init(image: UIImage? = nil,
+             contentMode: UIViewContentMode = .ScaleToFill,
              backgroundColor: UIColor? = nil,
              opaque: Bool = true,
              translatesAutoresizingMaskIntoConstraints: Bool = false) {
             
+            self.image = image
             self.backgroundColor = backgroundColor
             self.contentMode = contentMode
             self.opaque = opaque
@@ -68,8 +74,8 @@ public extension UIImageView {
      - parameter image: Optional image to initialise this image view with. Default value is `nil`.
      
     */
-    public convenience init(image: UIImage? = nil, configuration: Configuration) {
-        self.init(image: image)
+    public convenience init(configuration: Configuration) {
+        self.init(image: configuration.image)
         self.configureWith(configuration)
     }
     
@@ -81,8 +87,10 @@ public extension UIImageView {
      
      */
     public func configureWith(configuration: Configuration) {
+        self.image = configuration.image
         self.contentMode = configuration.contentMode
-        self.translatesAutoresizingMaskIntoConstraints = configuration.translatesAutoresizingMaskIntoConstraints
+        self.backgroundColor = configuration.backgroundColor
         self.opaque = configuration.opaque
+        self.translatesAutoresizingMaskIntoConstraints = configuration.translatesAutoresizingMaskIntoConstraints
     }
 }

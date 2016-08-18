@@ -8,6 +8,17 @@
 
 import UIKit
 
+/// Enum wrapping the two types of text representations.
+public enum Text {
+    
+    /// A plain `String`, typically set to a `text` property.
+    case Plain(String)
+    
+    /// An `NSAttributedString`, typically set to an `attributedText` property.
+    case Attributed(NSAttributedString)
+    
+}
+
 /**
  
  Extension to allow configuration through a parameter object type. This allows for easier programmatic creation of [UILabel](https://developer.apple.com/reference/uikit/uilabel)s.
@@ -26,6 +37,9 @@ public extension UILabel {
      
      */
     public struct Configuration {
+        
+        /// Represents a `UILabel`'s `text` or `attributedText`.
+        public let text: Text?
         
         /// Represents a `UILabel`'s `font`.
         public let font: UIFont
@@ -49,16 +63,20 @@ public extension UILabel {
  
          Convenience initialiser for creating a label configuration with a `UIFontTextStyle` instead of a font. All other parameters are passed through to the default initialiser with the same default values.
          
+         - parameter text: Optional `Text` passed to the default initialiser. Default value is `nil`.
          - parameter textStyle: Default value is Body.
+         
         */
-        public init(textStyle: String = UIFontTextStyleBody,
+        public init(text: Text? = nil,
+                    textStyle: String = UIFontTextStyleBody,
                     textColor: UIColor = UIColor.blackColor(),
                     textAlignment: NSTextAlignment = .Natural,
                     numberOfLines: Int = 1,
                     lineBreakMode: NSLineBreakMode = .ByTruncatingTail,
                     translatesAutoresizingMaskIntoConstraints: Bool = false) {
             
-            self.init(font: UIFont.preferredFontForTextStyle(textStyle),
+            self.init(text: text,
+                      font: UIFont.preferredFontForTextStyle(textStyle),
                       textColor: textColor,
                       textAlignment: textAlignment,
                       numberOfLines: numberOfLines,
@@ -70,6 +88,7 @@ public extension UILabel {
          
          Default initialiser. Sets all properties.
          
+         - parameter text: Must be provided.
          - parameter font: Must be provided.
          - parameter textColor: Default value is black.
          - parameter textAlignment: Default value is `.Natural`.
@@ -78,13 +97,15 @@ public extension UILabel {
          - parameter translatesAutoresizingMaskIntoConstraints: Default value is `false`.
          
          */
-        public init(font: UIFont,
+        public init(text: Text?,
+                    font: UIFont,
                     textColor: UIColor = UIColor.blackColor(),
                     textAlignment: NSTextAlignment = .Natural,
                     numberOfLines: Int = 1,
                     lineBreakMode: NSLineBreakMode = .ByTruncatingTail,
                     translatesAutoresizingMaskIntoConstraints: Bool = false) {
             
+            self.text = text
             self.font = font
             self.textColor = textColor
             self.textAlignment = textAlignment
@@ -93,40 +114,16 @@ public extension UILabel {
             self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
         }
     }
-
-    /**
-     
-     Convenience initialiser to programmatically create a label with optional text and a given set of properties.
-     
-     - note: The inclusion of an optional text parameter is to mirror the initialiser `UIImageView.init(image: UIImage?)`. This is not included in the configuration as there is a the mutually exclusive `attributedText` property. It would also make it hard to define specific reusable configurations as styles, as the `text` / `attributedText` variables would always have to be `nil` with such configurations, and the user couldn't use a defined configuration and set the text at the same time.
-     
-     - parameter text: An optional string to set as the text of the label
-     - parameter configuration: The properties to assign to the label.
-     
-     - seealso: `init(attributedText:configuration:)`
-     
-     */
-    public convenience init(text: String? = nil, configuration: Configuration) {
-        self.init()
-        self.text = text
-        configureWith(configuration)
-    }
     
     /**
      
      Convenience initialiser to programmatically create a label with optional attributed text and a given set of properties.
      
-     - note: The inclusion of an optional attributedtext parameter is to mirror the initialiser `UIImageView.init(image: UIImage?)`. This is not included in the configuration as there is a mutually exclusive `text` property. It would also make it hard to define specific reusable configurations as styles, as the `text` / `attributedText` variables would always have to be `nil` with such configurations, and the user couldn't use a defined configuration and set the text at the same time.
-     
-     - parameter attributedText: An optional attributed string to set as the text of the label
      - parameter configuration: The properties to assign to the label.
      
-     - seealso: `init(attributedText:configuration:)`
-     
      */
-    public convenience init(attributedText: NSAttributedString? = nil, configuration: Configuration) {
+    public convenience init(configuration: Configuration) {
         self.init()
-        self.attributedText = attributedText
         configureWith(configuration)
     }
     
@@ -145,5 +142,21 @@ public extension UILabel {
         self.numberOfLines = configuration.numberOfLines
         self.lineBreakMode = configuration.lineBreakMode
         self.translatesAutoresizingMaskIntoConstraints = configuration.translatesAutoresizingMaskIntoConstraints
+        self.setText(configuration.text)
+    }
+    
+    public func setText(t:Text?) {
+        
+        if let text = t {
+            switch text {
+            case .Plain(let str):
+                self.text = str
+            case .Attributed(let str):
+                self.attributedText = str
+            }
+        } else {
+            self.text = nil
+            self.attributedText = nil
+        }
     }
 }

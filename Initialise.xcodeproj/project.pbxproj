@@ -13,6 +13,8 @@
 		A5A94E2B1D6481BC0036B822 /* UILabel+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A94E2A1D6481BC0036B822 /* UILabel+Initialise.swift */; };
 		A5A94E2D1D6487790036B822 /* LabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A94E2C1D6487790036B822 /* LabelTests.swift */; };
 		A5C916321D64B85000EE5807 /* UIImageView+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C916311D64B85000EE5807 /* UIImageView+Initialise.swift */; };
+		A5EBBF0C1D65A21800DED17F /* UIImageViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EBBF0B1D65A21800DED17F /* UIImageViewTests.swift */; };
+		A5EBBF0E1D65A25700DED17F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5EBBF0D1D65A25700DED17F /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 		A5A94E2A1D6481BC0036B822 /* UILabel+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Initialise.swift"; sourceTree = "<group>"; };
 		A5A94E2C1D6487790036B822 /* LabelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTests.swift; sourceTree = "<group>"; };
 		A5C916311D64B85000EE5807 /* UIImageView+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Initialise.swift"; sourceTree = "<group>"; };
+		A5EBBF0B1D65A21800DED17F /* UIImageViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewTests.swift; sourceTree = "<group>"; };
+		A5EBBF0D1D65A25700DED17F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 			children = (
 				A5A94E1F1D6480C90036B822 /* InitialiseTests.swift */,
 				A5A94E2C1D6487790036B822 /* LabelTests.swift */,
+				A5EBBF0B1D65A21800DED17F /* UIImageViewTests.swift */,
+				A5EBBF0D1D65A25700DED17F /* Media.xcassets */,
 				A5A94E211D6480C90036B822 /* Info.plist */,
 			);
 			path = InitialiseTests;
@@ -193,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5EBBF0E1D65A25700DED17F /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5EBBF0C1D65A21800DED17F /* UIImageViewTests.swift in Sources */,
 				A5A94E2D1D6487790036B822 /* LabelTests.swift in Sources */,
 				A5A94E201D6480C90036B822 /* InitialiseTests.swift in Sources */,
 			);
