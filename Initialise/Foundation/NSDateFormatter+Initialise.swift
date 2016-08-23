@@ -23,7 +23,7 @@ public func ==(type1: NSDateFormatter.DateType, type2: NSDateFormatter.DateType)
 
 /**
  
- Extension to allow configuration through a parameter object type. As `NSDateFormatter`s can be expensive to create, `static` class level variables are a good candidate for specifying a formatter. Typically this can be done in a closure. The `NSDateFormatter.Configuration` allows this to be simplifier.
+ Extension to allow configuration through a parameter object type. As `NSDateFormatter`s can be expensive to create, `static` class level variables are a good candidate for specifying a formatter. Typically this can be done in a closure. The `NSDateFormatter.Configuration` struct allows this to be simplifier.
  
  See the [ReadMe](https://github.com/joshc89/Initialise) for examples.
  
@@ -64,10 +64,10 @@ public extension NSDateFormatter {
     
     /**
      
-     Configuration Model for an `NSDateFromatter`.
+     Configuration Model for an `NSDateFormatter`.
      
-     - seealso: `UIImageView.init(configuration:)`
-     - seealso: `UIImageView.configureWith(_:)`
+     - seealso: `NSDateFormatter.init(configuration:)`
+     - seealso: `NSDateFormatter.configureWith(_:)`
      
      */
     public struct Configuration {
@@ -114,7 +114,7 @@ public extension NSDateFormatter {
         }
     }
     
-    /// Convenience initialiser to programmatically create a date formatter with a given set of properties.
+    /// Convenience initialiser to create a date formatter with a given set of properties.
     public convenience init(configuration: Configuration) {
         self.init()
         self.configureWith(configuration)

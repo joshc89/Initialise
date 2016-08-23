@@ -12,9 +12,10 @@
 		A56B4FC01D6749820057D596 /* UILabel+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B4FBD1D6749820057D596 /* UILabel+Initialise.swift */; };
 		A56B4FC11D6749820057D596 /* UIStackView+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B4FBE1D6749820057D596 /* UIStackView+Initialise.swift */; };
 		A56B4FC31D6749940057D596 /* NSDateFormatter+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B4FC21D6749940057D596 /* NSDateFormatter+Initialise.swift */; };
-		A56B4FC51D6749A30057D596 /* NSNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B4FC41D6749A30057D596 /* NSNumberFormatter.swift */; };
+		A56B4FC51D6749A30057D596 /* NSNumberFormatter+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B4FC41D6749A30057D596 /* NSNumberFormatter+Initialise.swift */; };
 		A57270BF1D6C927F00892408 /* NSDateComponents+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57270BE1D6C927F00892408 /* NSDateComponents+Initialise.swift */; };
 		A57270C11D6C9BE600892408 /* NSDateComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57270C01D6C9BE600892408 /* NSDateComponentsTests.swift */; };
+		A57270C31D6CA0AF00892408 /* NSNumberFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57270C21D6CA0AF00892408 /* NSNumberFormatterTests.swift */; };
 		A5A94E141D6480C80036B822 /* Initialise.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A94E131D6480C80036B822 /* Initialise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5A94E1B1D6480C80036B822 /* Initialise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A94E101D6480C80036B822 /* Initialise.framework */; };
 		A5A94E201D6480C90036B822 /* InitialiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A94E1F1D6480C90036B822 /* InitialiseTests.swift */; };
@@ -40,9 +41,10 @@
 		A56B4FBD1D6749820057D596 /* UILabel+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Initialise.swift"; sourceTree = "<group>"; };
 		A56B4FBE1D6749820057D596 /* UIStackView+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Initialise.swift"; sourceTree = "<group>"; };
 		A56B4FC21D6749940057D596 /* NSDateFormatter+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+Initialise.swift"; sourceTree = "<group>"; };
-		A56B4FC41D6749A30057D596 /* NSNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberFormatter.swift; sourceTree = "<group>"; };
+		A56B4FC41D6749A30057D596 /* NSNumberFormatter+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumberFormatter+Initialise.swift"; sourceTree = "<group>"; };
 		A57270BE1D6C927F00892408 /* NSDateComponents+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateComponents+Initialise.swift"; sourceTree = "<group>"; };
 		A57270C01D6C9BE600892408 /* NSDateComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComponentsTests.swift; sourceTree = "<group>"; };
+		A57270C21D6CA0AF00892408 /* NSNumberFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberFormatterTests.swift; sourceTree = "<group>"; };
 		A5A94E101D6480C80036B822 /* Initialise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Initialise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A94E131D6480C80036B822 /* Initialise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Initialise.h; sourceTree = "<group>"; };
 		A5A94E151D6480C80036B822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 			children = (
 				A56B4FC21D6749940057D596 /* NSDateFormatter+Initialise.swift */,
 				A57270BE1D6C927F00892408 /* NSDateComponents+Initialise.swift */,
-				A56B4FC41D6749A30057D596 /* NSNumberFormatter.swift */,
+				A56B4FC41D6749A30057D596 /* NSNumberFormatter+Initialise.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -140,6 +142,7 @@
 			children = (
 				A52A438C1D67536B000E9E21 /* NSDateFormatterTests.swift */,
 				A57270C01D6C9BE600892408 /* NSDateComponentsTests.swift */,
+				A57270C21D6CA0AF00892408 /* NSNumberFormatterTests.swift */,
 			);
 			path = "Foundation Tests";
 			sourceTree = "<group>";
@@ -266,7 +269,7 @@
 				A56B4FC31D6749940057D596 /* NSDateFormatter+Initialise.swift in Sources */,
 				A56B4FC01D6749820057D596 /* UILabel+Initialise.swift in Sources */,
 				A56B4FBF1D6749820057D596 /* UIImageView+Initialise.swift in Sources */,
-				A56B4FC51D6749A30057D596 /* NSNumberFormatter.swift in Sources */,
+				A56B4FC51D6749A30057D596 /* NSNumberFormatter+Initialise.swift in Sources */,
 				A56B4FC11D6749820057D596 /* UIStackView+Initialise.swift in Sources */,
 				A57270BF1D6C927F00892408 /* NSDateComponents+Initialise.swift in Sources */,
 			);
@@ -282,6 +285,7 @@
 				A5E984041D67528600D2D13D /* UILabelTests.swift in Sources */,
 				A57270C11D6C9BE600892408 /* NSDateComponentsTests.swift in Sources */,
 				A52A438D1D67536B000E9E21 /* NSDateFormatterTests.swift in Sources */,
+				A57270C31D6CA0AF00892408 /* NSNumberFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
