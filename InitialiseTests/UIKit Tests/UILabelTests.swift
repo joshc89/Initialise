@@ -1,5 +1,5 @@
 //
-//  LabelTests.swift
+//  UILabelTests.swift
 //  Initialise
 //
 //  Created by Josh Campion on 17/08/2016.
@@ -11,7 +11,7 @@ import Foundation
 import XCTest
 import Initialise
 
-class LabelTests: XCTestCase {
+class UILabelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

@@ -67,13 +67,7 @@ public extension UIImageView {
         }
     }
     
-    /**
- 
-     Convenience initialiser to programmatically create an image view with a given set of properties.
-     
-     - parameter image: Optional image to initialise this image view with. Default value is `nil`.
-     
-    */
+    /// Convenience initialiser to programmatically create an image view with a given set of properties.
     public convenience init(configuration: Configuration) {
         self.init(image: configuration.image)
         self.configureWith(configuration)

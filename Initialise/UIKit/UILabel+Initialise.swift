@@ -117,7 +117,7 @@ public extension UILabel {
     
     /**
      
-     Convenience initialiser to programmatically create a label with optional attributed text and a given set of properties.
+     Convenience initialiser to programmatically create a label with a given set of properties.
      
      - parameter configuration: The properties to assign to the label.
      
