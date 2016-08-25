@@ -15,7 +15,7 @@ import Foundation
  See the [ReadMe](https://github.com/joshc89/Initialise) for examples.
  
  */
-public extension NSNumberFormatter {
+public extension NumberFormatter {
     
     /**
      
@@ -28,10 +28,10 @@ public extension NSNumberFormatter {
     public struct Configuration {
         
         /// Represents the number formatter's `numberStyle`.
-        public let numberStyle: NSNumberFormatterStyle
+        public let numberStyle: NumberFormatter.Style
         
         /// Represents the number formatter's `locale`.
-        public let locale: NSLocale
+        public let locale: Locale
         
         /// Optional representation of `minimumFractionDigits`. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`.
         public let minimumFractionDigits: Int?
@@ -67,8 +67,8 @@ public extension NSNumberFormatter {
          - parameter minimumIntegerDigits: Optional specification, default value is nil.
          - parameter maximumIntegerDigits: Optional specification, default value is nil.
          */
-        public init(numberStyle: NSNumberFormatterStyle,
-                    locale: NSLocale = NSLocale.currentLocale(),
+        public init(numberStyle: NumberFormatter.Style,
+                    locale: Locale = .current(),
                     minimumFractionDigits: Int? = nil,
                     maximumFractionDigits: Int? = nil,
                     minimumSignificantDigits: Int? = nil,
@@ -104,7 +104,7 @@ public extension NSNumberFormatter {
      - parameter configuration: The collection of properties to assign to this date formatter.
      
      */
-    public func configureWith(configuration: Configuration) {
+    public func configureWith(_ configuration: Configuration) {
         
         self.numberStyle =  configuration.numberStyle
         self.locale = configuration.locale

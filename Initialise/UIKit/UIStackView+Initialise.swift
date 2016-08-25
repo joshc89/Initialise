@@ -39,13 +39,13 @@ public extension UIStackView {
         public let axis: UILayoutConstraintAxis 
         
         /// Represents a `UIStackView`'s `baselineRelativeArrangement`.
-        public let baselineRelativeArrangement: Bool 
+        public let isBaselineRelativeArrangement: Bool
         
         /// Represents a `UIStackView`'s `distribution`.
         public let distribution: UIStackViewDistribution
         
         /// Represents a `UIStackView`'s `layoutMarginsRelativeArrangement`.
-        public let layoutMarginsRelativeArrangement: Bool  
+        public let isLayoutMarginsRelativeArrangement: Bool
         
         /// Represents a `UIStackView`'s `spacing`.
         public let spacing: CGFloat
@@ -68,12 +68,12 @@ public extension UIStackView {
          
         */
         public init(arrangedSubviews: [UIView],
-                    axis: UILayoutConstraintAxis = .Horizontal,
+                    axis: UILayoutConstraintAxis = .horizontal,
                     distribution: UIStackViewDistribution,
-                    alignment: UIStackViewAlignment = .Fill,
+                    alignment: UIStackViewAlignment = .fill,
                     spacing: CGFloat = 0.0,
-                    baselineRelativeArrangement: Bool = false,
-                    layoutMarginsRelativeArrangement: Bool = false,
+                    isBaselineRelativeArrangement: Bool = false,
+                    isLayoutMarginsRelativeArrangement: Bool = false,
                     translatesAutoresizingMaskIntoConstraints: Bool = false) {
          
             self.arrangedSubviews = arrangedSubviews
@@ -81,8 +81,8 @@ public extension UIStackView {
             self.distribution = distribution
             self.alignment = alignment
             self.spacing = spacing
-            self.baselineRelativeArrangement = baselineRelativeArrangement
-            self.layoutMarginsRelativeArrangement = layoutMarginsRelativeArrangement
+            self.isBaselineRelativeArrangement = isBaselineRelativeArrangement
+            self.isLayoutMarginsRelativeArrangement = isLayoutMarginsRelativeArrangement
             self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
         }
     }
@@ -109,7 +109,7 @@ public extension UIStackView {
      - parameter configuration: The collection of properties to assign to this image view.
      
     */
-    public func configureWith(configuration: Configuration) {
+    public func configureWith(_ configuration: Configuration) {
         
         // TODO: Compare current arranged subviews with new arranged subviews and add / remove / insert based on differences.
         
@@ -117,8 +117,8 @@ public extension UIStackView {
         self.distribution = configuration.distribution
         self.alignment = configuration.alignment
         self.spacing = configuration.spacing
-        self.baselineRelativeArrangement = configuration.baselineRelativeArrangement
-        self.layoutMarginsRelativeArrangement = configuration.layoutMarginsRelativeArrangement
+        self.isBaselineRelativeArrangement = configuration.isBaselineRelativeArrangement
+        self.isLayoutMarginsRelativeArrangement = configuration.isLayoutMarginsRelativeArrangement
         self.translatesAutoresizingMaskIntoConstraints = configuration.translatesAutoresizingMaskIntoConstraints
     }
     

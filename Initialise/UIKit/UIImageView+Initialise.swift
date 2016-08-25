@@ -37,7 +37,7 @@ public extension UIImageView {
         public let backgroundColor: UIColor?
         
         /// Represents a `UIImageViews`'s `isOpaque`.
-        public let opaque: Bool
+        public let isOpaque: Bool
         
         /// Represents a `UIImageViews`'s `translatesAutoresizingMaskIntoConstraints`.
         public let translatesAutoresizingMaskIntoConstraints: Bool
@@ -54,15 +54,15 @@ public extension UIImageView {
          
          */
         public init(image: UIImage? = nil,
-             contentMode: UIViewContentMode = .ScaleToFill,
+             contentMode: UIViewContentMode = .scaleToFill,
              backgroundColor: UIColor? = nil,
-             opaque: Bool = true,
+             isOpaque: Bool = true,
              translatesAutoresizingMaskIntoConstraints: Bool = false) {
             
             self.image = image
             self.backgroundColor = backgroundColor
             self.contentMode = contentMode
-            self.opaque = opaque
+            self.isOpaque = isOpaque
             self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
         }
     }
@@ -80,11 +80,11 @@ public extension UIImageView {
      - parameter configuration: The collection of properties to assign to this image view.
      
      */
-    public func configureWith(configuration: Configuration) {
+    public func configureWith(_ configuration: Configuration) {
         self.image = configuration.image
         self.contentMode = configuration.contentMode
         self.backgroundColor = configuration.backgroundColor
-        self.opaque = configuration.opaque
+        self.isOpaque = configuration.isOpaque
         self.translatesAutoresizingMaskIntoConstraints = configuration.translatesAutoresizingMaskIntoConstraints
     }
 }

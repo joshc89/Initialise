@@ -25,7 +25,7 @@ class UIImageViewTests: XCTestCase {
     func testInitConfiguration() {
         
         let image = UIImage(named: "ic_phone_iphone")
-        let mode = UIViewContentMode.ScaleAspectFit
+        let mode = UIViewContentMode.scaleAspectFit
         let bg = UIColor(white: 0.95, alpha: 1.0)
         let opaque = false
         let auto = true
@@ -33,21 +33,21 @@ class UIImageViewTests: XCTestCase {
         let testConfiguration = UIImageView.Configuration(image: image,
                                                           contentMode: mode,
                                                           backgroundColor: bg,
-                                                          opaque: opaque,
+                                                          isOpaque: opaque,
                                                           translatesAutoresizingMaskIntoConstraints: auto)
         let iv = UIImageView(configuration: testConfiguration)
         
         XCTAssertEqual(iv.image, image)
         XCTAssertEqual(iv.contentMode, mode)
         XCTAssertEqual(iv.backgroundColor, bg)
-        XCTAssertEqual(iv.opaque, opaque)
+        XCTAssertEqual(iv.isOpaque, opaque)
         XCTAssertEqual(iv.translatesAutoresizingMaskIntoConstraints, auto)
     }
     
     func testConfigure() {
         
         let image = UIImage(named: "ic_phone_iphone")
-        let mode = UIViewContentMode.ScaleAspectFit
+        let mode = UIViewContentMode.scaleAspectFit
         let bg = UIColor(white: 0.95, alpha: 1.0)
         let opaque = false
         let auto = true
@@ -55,7 +55,7 @@ class UIImageViewTests: XCTestCase {
         let testConfiguration = UIImageView.Configuration(image: image,
                                                           contentMode: mode,
                                                           backgroundColor: bg,
-                                                          opaque: opaque,
+                                                          isOpaque: opaque,
                                                           translatesAutoresizingMaskIntoConstraints: auto)
         
         let iv = UIImageView()
@@ -64,7 +64,7 @@ class UIImageViewTests: XCTestCase {
         XCTAssertEqual(iv.image, image)
         XCTAssertEqual(iv.contentMode, mode)
         XCTAssertEqual(iv.backgroundColor, bg)
-        XCTAssertEqual(iv.opaque, opaque)
+        XCTAssertEqual(iv.isOpaque, opaque)
         XCTAssertEqual(iv.translatesAutoresizingMaskIntoConstraints, auto)
     }
 

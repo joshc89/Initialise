@@ -23,9 +23,9 @@ class UIStackViewTests: XCTestCase {
     func testInitConfiguration() {
         
         let views = [UIImageView(), UIButton(), UILabel()]
-        let axis = UILayoutConstraintAxis.Vertical
-        let distribution = UIStackViewDistribution.EqualSpacing
-        let alignment = UIStackViewAlignment.Leading
+        let axis = UILayoutConstraintAxis.vertical
+        let distribution = UIStackViewDistribution.equalSpacing
+        let alignment = UIStackViewAlignment.leading
         let spacing:CGFloat = 8.0
         let baseline = true
         let margins = true
@@ -36,8 +36,8 @@ class UIStackViewTests: XCTestCase {
             distribution: distribution,
             alignment: alignment,
             spacing: spacing,
-            baselineRelativeArrangement: baseline,
-            layoutMarginsRelativeArrangement: margins,
+            isBaselineRelativeArrangement: baseline,
+            isLayoutMarginsRelativeArrangement: margins,
             translatesAutoresizingMaskIntoConstraints: auto))
         
         XCTAssertEqual(stack.arrangedSubviews, views)
@@ -45,17 +45,17 @@ class UIStackViewTests: XCTestCase {
         XCTAssertEqual(stack.distribution, distribution)
         XCTAssertEqual(stack.alignment, alignment)
         XCTAssertEqual(stack.spacing, spacing)
-        XCTAssertEqual(stack.baselineRelativeArrangement, baseline)
-        XCTAssertEqual(stack.layoutMarginsRelativeArrangement, margins)
+        XCTAssertEqual(stack.isBaselineRelativeArrangement, baseline)
+        XCTAssertEqual(stack.isLayoutMarginsRelativeArrangement, margins)
         XCTAssertEqual(stack.translatesAutoresizingMaskIntoConstraints, auto)
     }
     
     func testConfigure() {
         
         let views = [UIImageView(), UIButton(), UILabel()]
-        let axis = UILayoutConstraintAxis.Vertical
-        let distribution = UIStackViewDistribution.EqualSpacing
-        let alignment = UIStackViewAlignment.Leading
+        let axis = UILayoutConstraintAxis.vertical
+        let distribution = UIStackViewDistribution.equalSpacing
+        let alignment = UIStackViewAlignment.leading
         let spacing:CGFloat = 8.0
         let baseline = true
         let margins = true
@@ -66,8 +66,8 @@ class UIStackViewTests: XCTestCase {
                                                distribution: distribution,
                                                alignment: alignment,
                                                spacing: spacing,
-                                               baselineRelativeArrangement: baseline,
-                                               layoutMarginsRelativeArrangement: margins,
+                                               isBaselineRelativeArrangement: baseline,
+                                               isLayoutMarginsRelativeArrangement: margins,
                                                translatesAutoresizingMaskIntoConstraints: auto)
         
         let stack = UIStackView(arrangedSubviews: views)
@@ -78,8 +78,8 @@ class UIStackViewTests: XCTestCase {
         XCTAssertEqual(stack.distribution, distribution)
         XCTAssertEqual(stack.alignment, alignment)
         XCTAssertEqual(stack.spacing, spacing)
-        XCTAssertEqual(stack.baselineRelativeArrangement, baseline)
-        XCTAssertEqual(stack.layoutMarginsRelativeArrangement, margins)
+        XCTAssertEqual(stack.isBaselineRelativeArrangement, baseline)
+        XCTAssertEqual(stack.isLayoutMarginsRelativeArrangement, margins)
         XCTAssertEqual(stack.translatesAutoresizingMaskIntoConstraints, auto)
     }
 

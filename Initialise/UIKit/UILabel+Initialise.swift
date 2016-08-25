@@ -12,10 +12,10 @@ import UIKit
 public enum Text {
     
     /// A plain `String`, typically set to a `text` property.
-    case Plain(String)
+    case plain(String)
     
     /// An `NSAttributedString`, typically set to an `attributedText` property.
-    case Attributed(NSAttributedString)
+    case attributed(AttributedString)
     
 }
 
@@ -69,14 +69,14 @@ public extension UILabel {
         */
         public init(text: Text? = nil,
                     textStyle: String = UIFontTextStyleBody,
-                    textColor: UIColor = UIColor.blackColor(),
-                    textAlignment: NSTextAlignment = .Natural,
+                    textColor: UIColor = .black(),
+                    textAlignment: NSTextAlignment = .natural,
                     numberOfLines: Int = 1,
-                    lineBreakMode: NSLineBreakMode = .ByTruncatingTail,
+                    lineBreakMode: NSLineBreakMode = .byTruncatingTail,
                     translatesAutoresizingMaskIntoConstraints: Bool = false) {
             
             self.init(text: text,
-                      font: UIFont.preferredFontForTextStyle(textStyle),
+                      font: UIFont.preferredFont(forTextStyle: textStyle),
                       textColor: textColor,
                       textAlignment: textAlignment,
                       numberOfLines: numberOfLines,
@@ -99,10 +99,10 @@ public extension UILabel {
          */
         public init(text: Text?,
                     font: UIFont,
-                    textColor: UIColor = UIColor.blackColor(),
-                    textAlignment: NSTextAlignment = .Natural,
+                    textColor: UIColor = .black(),
+                    textAlignment: NSTextAlignment = .natural,
                     numberOfLines: Int = 1,
-                    lineBreakMode: NSLineBreakMode = .ByTruncatingTail,
+                    lineBreakMode: NSLineBreakMode = .byTruncatingTail,
                     translatesAutoresizingMaskIntoConstraints: Bool = false) {
             
             self.text = text
@@ -134,7 +134,7 @@ public extension UILabel {
      - parameter configuration: The collection of properties to assign to this label.
 
     */
-    public func configureWith(configuration: Configuration) {
+    public func configureWith(_ configuration: Configuration) {
         
         self.font = configuration.font
         self.textColor = configuration.textColor
@@ -142,17 +142,17 @@ public extension UILabel {
         self.numberOfLines = configuration.numberOfLines
         self.lineBreakMode = configuration.lineBreakMode
         self.translatesAutoresizingMaskIntoConstraints = configuration.translatesAutoresizingMaskIntoConstraints
-        self.setText(configuration.text)
+        self.set(text: configuration.text)
     }
     
     /// Sets either the `text` or `attributedText` based on the given `Text` object.
-    public func setText(t:Text?) {
+    public func set(text: Text?) {
         
-        if let text = t {
-            switch text {
-            case .Plain(let str):
+        if let t = text {
+            switch t {
+            case .plain(let str):
                 self.text = str
-            case .Attributed(let str):
+            case .attributed(let str):
                 self.attributedText = str
             }
         } else {
