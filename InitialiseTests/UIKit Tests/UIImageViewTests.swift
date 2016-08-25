@@ -30,12 +30,12 @@ class UIImageViewTests: XCTestCase {
         let opaque = false
         let auto = true
         
-        let testConfiguration = UIImageView.Configuration(image: image,
-                                                          contentMode: mode,
-                                                          backgroundColor: bg,
-                                                          isOpaque: opaque,
-                                                          translatesAutoresizingMaskIntoConstraints: auto)
-        let iv = UIImageView(configuration: testConfiguration)
+        
+        let iv = UIImageView(configuration: .init(image: image,
+                                                  contentMode: mode,
+                                                  backgroundColor: bg,
+                                                  isOpaque: opaque,
+                                                  translatesAutoresizingMaskIntoConstraints: auto))
         
         XCTAssertEqual(iv.image, image)
         XCTAssertEqual(iv.contentMode, mode)

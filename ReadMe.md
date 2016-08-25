@@ -9,17 +9,15 @@ Simple initialisation and configuration in Swift.
 
 Create and configure programmatic UIKit components in concise initialisers:
 
-*Note: Swift 3 syntax is more concise*
-
-	let headline = UILabel(configuration: UILabel.Configuration(textStyle: UIFontTextStyleHeadline,  
+	let headline = UILabel(configuration: .init(textStyle: .headline,  
 		numberOfLines: 0))
 		
-	let subheadline = UILabel(configuration: UILabel.Configuration(textStyle: UIFontTextStyleSubHeadline, 
+	let subheadline = UILabel(configuration: .init(textStyle: .subHeadline, 
 		textColor: UIColor.lightGrayColor(), 
 		numberOfLines: 0))
 	
-	let stack = UIStackView(configuration: UIStackView.Configuration(arrangedSubViews: [headline, subheadline],
-		axis: .Vertical,
+	let stack = UIStackView(configuration: .init(arrangedSubViews: [headline, subheadline],
+		axis: .vertical,
 		spacing: 8.0))
 		
 		
@@ -51,8 +49,8 @@ Programmatic UI can have advantages over Storyboards however it can become cumbe
         func viewDidLoad() {
             super.viewDidLoad()
  
- 			label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-            label.textColor = UIColor.lightGrayColor()
+ 			label.font = UIFont.preferredFont(forTextStyle: .body)
+            label.textColor = .lightGray()
             label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
             
@@ -73,8 +71,8 @@ As the number of elements grows so does the size of `viewDidLoad(_:)`, `init(..
         let titleLabel: UILabel = {
         
 	        let label = UILabel()
-    	    label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-            label.textColor = UIColor.lightGrayColor()
+    	    label.font = UIFont.preferredFont(forTextStyle: .body)
+            label.textColor = .lightGray()
             label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -96,7 +94,7 @@ This library provides a collection of convenience initialisers for UIKit and Fou
 
 	class MyViewController: UIViewController {
  
-        let label = UILabel(configuration: UILabel.Configuration(textColor: UIColor.lightGrayColor(), numberOfLines: 0))
+        let label = UILabel(configuration: .init(textColor: .lightGray(), numberOfLines: 0))
  
  		func viewDidLoad() {
             super.viewDidLoad()
@@ -111,35 +109,35 @@ It also becomes possible to define fixed or flexible styles for your UI that you
 	extension UILabel.Configuration {
  
     	static var headlineConfiguration: UILabel.Configuration {
-        	return UILabel.Configuration(textStyle: UIFontTextStyleHeadline,
-            	                         textColor: UIColor.redColor(),
+        	return UILabel.Configuration(textStyle: .headline,
+            	                         textColor: .red(),
                 	                     numberOfLines: 0)
     	}
     	
-    	static func headlineConfiguration(alignment: NSTextAlignment = .Natural) -> UILabel.Configuration {
-        	return UILabel.Configuration(textStyle: UIFontTextStyleHeadline,
-            	                         textColor: UIColor.redColor(),
-            	                         textAlignment: alignment,
+    	static func headlineConfiguration(withAlignment: NSTextAlignment = .natural) -> UILabel.Configuration {
+        	return UILabel.Configuration(textStyle: .headline,
+            	                         textColor: .red(),
+            	                         textAlignment: withAlignment,
                 	                     numberOfLines: 0)
     	}
 	}
-
-	class MyViewController: UIViewController {
-	
-    	let headlineLabel = UILabel(configuration: UILabel.Configuration.headlineConfiguration)
-    	
-    	let centeredHeadlineLabel = UILabel(configuration: UILabel.Configuration.headlineConfiguration(.Center))
-	}
-	
-
- This syntax also becomes much neater in Swift 3:
  
  	class MyViewController: UIViewController {
     	let headlineLabel = UILabel(configuration: .headlineConfiguration)
-    	let centeredHeadlineLabel = UILabel(configuration: .headlineConfiguration(.center))
+    	let centeredHeadlineLabel = UILabel(configuration: .headlineConfiguration(withAlignment: .center))
 	}
 	
 This greatly simplifies programmatic UI creation allowing for cleaner code that is easier to write and reason about.
+
+The same can be achieved for foundation classes:
+
+	class MyViewController: UIViewController {
+	
+    	let readFormatter = DateFormatter(configuration: .RFC3339)
+    	let writeFormatter = DateFormatter(configuration: .init(dateType: styled(date: .longStyle, time: .mediumStyle),
+                                                            locale: Locale(localeIdentifier: "en_GB"),
+                                                            timeZone: TimeZone(name: "Europe/London")!))))
+	}	
 
 ## Credits
 

@@ -32,7 +32,7 @@ class UILabelTests: XCTestCase {
         let breakMode = NSLineBreakMode.byWordWrapping
         let translates = true
         
-        let label = UILabel(configuration: UILabel.Configuration(text: nil,
+        let label = UILabel(configuration: .init(text: nil,
             font: font,
             textColor: color,
             textAlignment: align,
@@ -58,7 +58,7 @@ class UILabelTests: XCTestCase {
         let breakMode = NSLineBreakMode.byWordWrapping
         let translates = true
         
-        let label = UILabel(configuration: UILabel.Configuration(textStyle: style,
+        let label = UILabel(configuration: .init(textStyle: style,
             textColor: color,
             textAlignment: align,
             numberOfLines: lines,
@@ -84,7 +84,7 @@ class UILabelTests: XCTestCase {
         let translates = true
         
         let label = UILabel()
-        label.configureWith(UILabel.Configuration(textStyle: style,
+        label.configureWith(.init(textStyle: style,
             textColor: color,
             textAlignment: align,
             numberOfLines: lines,
@@ -97,14 +97,12 @@ class UILabelTests: XCTestCase {
         XCTAssertEqual(label.numberOfLines, lines)
         XCTAssertEqual(label.lineBreakMode, breakMode)
         XCTAssertEqual(label.translatesAutoresizingMaskIntoConstraints, translates)
-
-        
     }
     
     func testPlainText() {
         
         let str = "Hello World"
-        let label = UILabel(configuration: UILabel.Configuration(text: .plain(str)))
+        let label = UILabel(configuration: .init(text: .plain(str)))
         
         XCTAssertEqual(label.text, str)
     }
@@ -116,7 +114,7 @@ class UILabelTests: XCTestCase {
             NSForegroundColorAttributeName: UIColor.red()]
         let str = AttributedString(string: "Hello World", attributes: attribs)
         
-        let label = UILabel(configuration: UILabel.Configuration(text: .attributed(str)))
+        let label = UILabel(configuration: .init(text: .attributed(str)))
         
         XCTAssertEqual(label.attributedText, str)
     }
