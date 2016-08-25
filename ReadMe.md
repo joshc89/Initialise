@@ -5,9 +5,7 @@
 
 Simple initialisation and configuration in Swift.
 
-## Features
-
-### TL;DR
+## Summary
 
 Create and configure programmatic UIKit components in concise initialisers:
 
@@ -39,7 +37,7 @@ If there are classes or parameters not covered please submit a pull request.
 
 ### Problem
 
-Programmatic UI can have advantages over Storyboards *Include details* however it can become cumbersome to configure all of the subviews if there are a lot of elements in the hierarchy. Configuring a single label might look something like this:
+Programmatic UI can have advantages over Storyboards however it can become cumbersome to configure all of the subviews if there are a lot of elements in the hierarchy. Configuring a single label might look something like this:
 
     class MyViewController: UIViewController {
  
@@ -142,8 +140,8 @@ This greatly simplifies programmatic UI creation allowing for cleaner code that 
 
 Thanks to the following authors whose posts inspired this library:
 
-- @NatashaTheRobot: [Refactoring To: Parameter Objects][Parameter Objects]
-- Jesse Squires: [Enums as Configuration: The anti-pattern][Parameter Objects]
+- Natasha The Robot: [Refactoring To: Parameter Objects](https://www.natashatherobot.com/parameter-objects/)
+- Jesse Squires: [Enums as Configuration: The anti-pattern](http://www.jessesquires.com/enums-as-configs/)
 - Jordan Morgan: [Swift Initialisation as Closures](https://medium.com/the-traveled-ios-developers-guide/swift-initialization-with-closures-5ea177f65a5#.i7xmervzc)
 
 [Parameter Objects]: (https://www.natashatherobot.com/parameter-objects/)
