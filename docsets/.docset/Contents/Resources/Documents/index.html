@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/joshc89/Initialise"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+          Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/Text.html">Text</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/NSDateComponents.html">NSDateComponents</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/NSDateComponents/Configuration.html">– Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/NSDateFormatter.html">NSDateFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/NSDateFormatter/DateType.html">– DateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/NSDateFormatter/Configuration.html">– Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/NSNumberFormatter.html">NSNumberFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/NSNumberFormatter/Configuration.html">– Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIImageView.html">UIImageView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIImageView/Configuration.html">– Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UILabel.html">UILabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UILabel/Configuration.html">– Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIStackView.html">UIStackView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIStackView/Configuration.html">– Configuration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:ZF10Initialiseoi2eeFTOES_CSo15NSDateFormatter8DateTypeS1__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <a href='#initialise' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='initialise'>Initialise</h1>
+
+<p><a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a></p>
+
+<p>Simple initialisation and configuration in Swift.</p>
+<a href='#summary' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='summary'>Summary</h2>
+
+<p>Create and configure programmatic UIKit components in concise initialisers:</p>
+
+<p><em>Note: Swift 3 syntax is more concise</em></p>
+<pre class="highlight plaintext"><code>let headline = UILabel(configuration: UILabel.Configuration(textStyle: UIFontTextStyleHeadline,  
+    numberOfLines: 0))
+
+let subheadline = UILabel(configuration: UILabel.Configuration(textStyle: UIFontTextStyleSubHeadline, 
+    textColor: UIColor.lightGrayColor(), 
+    numberOfLines: 0))
+
+let stack = UIStackView(configuration: UIStackView.Configuration(arrangedSubViews: [headline, subheadline],
+    axis: .Vertical,
+    spacing: 8.0))
+</code></pre>
+
+<p><a href="(https://www.natashatherobot.com/parameter-objects/)">Parameter Objects</a> are given for the following classes.</p>
+
+<ul>
+<li>UIKit
+
+<ul>
+<li><code>UILabel</code></li>
+<li><code>UIImageView</code></li>
+<li><code>UIStackView</code></li>
+</ul></li>
+<li>Foundation</li>
+</ul>
+
+<p>If there are classes or parameters not covered please submit a pull request.</p>
+<a href='#motivation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='motivation'>Motivation</h2>
+<a href='#problem' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='problem'>Problem</h3>
+
+<p>Programmatic UI can have advantages over Storyboards however it can become cumbersome to configure all of the subviews if there are a lot of elements in the hierarchy. Configuring a single label might look something like this:</p>
+<pre class="highlight plaintext"><code>class MyViewController: UIViewController {
+
+    let label = UILabel()
+
+    func viewDidLoad() {
+        super.viewDidLoad()
+
+        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        label.textColor = UIColor.lightGrayColor()
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addSubview(label)
+
+        // create constraints...
+    }
+}
+</code></pre>
+
+<p>As the number of elements grows so does the size of <code>viewDidLoad(_:)</code>, <code>init(...)</code>. One solution is to create a dedicated function that does all of this work however that still requires a lot of boilerplate code and separates the configuration of the variables from their initial definition.</p>
+
+<p><em>I also continually to forget <code>translatesAutoresizingMaskIntoConstraints = false</code> and it&rsquo;s not until you run and see nothing on screen that you have to work backwards and fix this.</em></p>
+
+<p><a href="https://medium.com/the-traveled-ios-developers-guide/swift-initialization-with-closures-5ea177f65a5#.i7xmervzc">Another approach</a> is to do the configuration within a closure initialiser:</p>
+<pre class="highlight plaintext"><code>class MyViewController: UIViewController {
+
+    let titleLabel: UILabel = {
+
+        let label = UILabel()
+        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        label.textColor = UIColor.lightGrayColor()
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.addSubview(label)
+        // create constraints...
+    }
+}
+</code></pre>
+
+<p>This puts configuration close to definition but still includes a lot of boilerplate code.</p>
+<a href='#solution' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='solution'>Solution</h3>
+
+<p>This library provides a collection of convenience initialisers for UIKit and Foundation classes using <a href="(https://www.natashatherobot.com/parameter-objects/)">Parameter Objects</a> as <a href="(http://www.jessesquires.com/enums-as-configs/)">Configuration Models</a> for each class. This allows for cleaner UI code:</p>
+<pre class="highlight plaintext"><code>class MyViewController: UIViewController {
+
+    let label = UILabel(configuration: UILabel.Configuration(textColor: UIColor.lightGrayColor(), numberOfLines: 0))
+
+    func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.addSubview(label)
+        // create constraints...
+    }
+}
+</code></pre>
+
+<p>It also becomes possible to define fixed or flexible styles for your UI that you can reuse through the app:</p>
+<pre class="highlight plaintext"><code>extension UILabel.Configuration {
+
+    static var headlineConfiguration: UILabel.Configuration {
+        return UILabel.Configuration(textStyle: UIFontTextStyleHeadline,
+                                     textColor: UIColor.redColor(),
+                                     numberOfLines: 0)
+    }
+
+    static func headlineConfiguration(alignment: NSTextAlignment = .Natural) -&gt; UILabel.Configuration {
+        return UILabel.Configuration(textStyle: UIFontTextStyleHeadline,
+                                     textColor: UIColor.redColor(),
+                                     textAlignment: alignment,
+                                     numberOfLines: 0)
+    }
+}
+
+class MyViewController: UIViewController {
+
+    let headlineLabel = UILabel(configuration: UILabel.Configuration.headlineConfiguration)
+
+    let centeredHeadlineLabel = UILabel(configuration: UILabel.Configuration.headlineConfiguration(.Center))
+}
+</code></pre>
+
+<p>This syntax also becomes much neater in Swift 3:</p>
+<pre class="highlight plaintext"><code>class MyViewController: UIViewController {
+    let headlineLabel = UILabel(configuration: .headlineConfiguration)
+    let centeredHeadlineLabel = UILabel(configuration: .headlineConfiguration(.center))
+}
+</code></pre>
+
+<p>This greatly simplifies programmatic UI creation allowing for cleaner code that is easier to write and reason about.</p>
+<a href='#credits' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='credits'>Credits</h2>
+
+<p>Thanks to the following authors whose posts inspired this library:</p>
+
+<ul>
+<li>Natasha The Robot: <a href="https://www.natashatherobot.com/parameter-objects/">Refactoring To: Parameter Objects</a></li>
+<li>Jesse Squires: <a href="http://www.jessesquires.com/enums-as-configs/">Enums as Configuration: The anti-pattern</a></li>
+<li>Jordan Morgan: <a href="https://medium.com/the-traveled-ios-developers-guide/swift-initialization-with-closures-5ea177f65a5#.i7xmervzc">Swift Initialisation as Closures</a></li>
+</ul>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Josh Campion</a>. All rights reserved. (Last updated: 2016-08-25)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
