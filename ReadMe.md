@@ -3,7 +3,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
-Clean initialisation and configuration of Foundation and UIKit classes.
+Simple initialisation and configuration in Swift.
 
 ## Features
 
