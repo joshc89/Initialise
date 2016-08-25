@@ -30,6 +30,11 @@ Create and configure programmatic UIKit components in concise initialisers:
 	* `UIImageView`
 	* `UIStackView`
 * Foundation
+	* `NSDateFormatter`
+	* `NSDateComponents`
+	* `NSNumberFormatter`
+
+[Documentation](https://joshc89.github.io/Initialise/) is available for all of these extensions.
 
 If there are classes or parameters not covered please submit a pull request.
 

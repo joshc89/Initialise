@@ -117,7 +117,7 @@ public extension UILabel {
     
     /**
      
-     Convenience initialiser to programmatically create a label with a given set of properties.
+     Convenience initialiser to create a label with a given set of properties.
      
      - parameter configuration: The properties to assign to the label.
      
@@ -145,6 +145,7 @@ public extension UILabel {
         self.setText(configuration.text)
     }
     
+    /// Sets either the `text` or `attributedText` based on the given `Text` object.
     public func setText(t:Text?) {
         
         if let text = t {

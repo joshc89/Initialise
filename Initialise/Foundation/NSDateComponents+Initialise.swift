@@ -25,13 +25,28 @@ public extension NSDateComponents {
      */
     struct Configuration {
         
+        /// Represents an `NSDateComponent`'s `year`.
         public let year: Int
+        
+        /// Represents an `NSDateComponent`'s `month`.
         public let month: Int
+        
+        /// Represents an `NSDateComponent`'s `day`.
         public let day: Int
+        
+        /// Represents an `NSDateComponent`'s `hour`.
         public let hour: Int
+        
+        /// Represents an `NSDateComponent`'s `minute`.
         public let minute: Int
+        
+        /// Represents an `NSDateComponent`'s `second`.
         public let second: Int
+        
+        /// Represents an `NSDateComponent`'s `calendar`.
         public let calendar: NSCalendar?
+        
+        /// Represents an `NSDateComponent`'s `timeZone`.
         public let timeZone: NSTimeZone?
         
         /**

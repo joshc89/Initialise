@@ -46,6 +46,7 @@ public extension NSDateFormatter {
         /// Represents the `NSDateFormatterStyle`s assigned to `dateStyle` and `timeStyle`.
         case Styled(date: NSDateFormatterStyle, time: NSDateFormatterStyle)
         
+        /// Convenience creator for `.MediumStyle` date and time. 
         public static var Default = DateType.Styled(date: .MediumStyle, time: .MediumStyle)
     }
     

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 /**
  
  Extension to allow configuration through a parameter object type. This allows for easier programmatic creation and configuration of [UIStackViews](https://developer.apple.com/reference/uikit/uistackview).
@@ -15,6 +16,7 @@ import UIKit
  See the [ReadMe](https://github.com/joshc89/Initialise) for examples.
  
  */
+@available(iOS 9, *)
 public extension UIStackView {
     
     /**
@@ -85,6 +87,13 @@ public extension UIStackView {
         }
     }
     
+    /**
+     
+     Convenience initialiser to create a stack view with a given set of properties.
+     
+     - parameter configuration: The properties to assign to the stack view.
+     
+     */
     public convenience init(configuration: Configuration) {
         
         self.init(arrangedSubviews: configuration.arrangedSubviews)
