@@ -13,7 +13,7 @@ Create and configure programmatic UIKit components in concise initialisers:
 		numberOfLines: 0))
 		
 	let subheadline = UILabel(configuration: .init(textStyle: .subHeadline, 
-		textColor: UIColor.lightGrayColor(), 
+		textColor: .lightGray, 
 		numberOfLines: 0))
 	
 	let stack = UIStackView(configuration: .init(arrangedSubViews: [headline, subheadline],
@@ -29,7 +29,6 @@ Create and configure programmatic UIKit components in concise initialisers:
 	* `UIStackView`
 * Foundation
 	* `NSDateFormatter`
-	* `NSDateComponents`
 	* `NSNumberFormatter`
 
 [Documentation](https://joshc89.github.io/Initialise/) is available for all of these extensions.
@@ -50,7 +49,7 @@ Programmatic UI can have advantages over Storyboards however it can become cumbe
             super.viewDidLoad()
  
  			label.font = UIFont.preferredFont(forTextStyle: .body)
-            label.textColor = .lightGray()
+            label.textColor = .lightGray
             label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
             
@@ -72,7 +71,7 @@ As the number of elements grows so does the size of `viewDidLoad(_:)`, `init(..
         
 	        let label = UILabel()
     	    label.font = UIFont.preferredFont(forTextStyle: .body)
-            label.textColor = .lightGray()
+            label.textColor = .lightGray
             label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -94,7 +93,7 @@ This library provides a collection of convenience initialisers for UIKit and Fou
 
 	class MyViewController: UIViewController {
  
-        let label = UILabel(configuration: .init(textColor: .lightGray(), numberOfLines: 0))
+        let label = UILabel(configuration: .init(textColor: .lightGray, numberOfLines: 0))
  
  		func viewDidLoad() {
             super.viewDidLoad()
@@ -116,7 +115,7 @@ It also becomes possible to define fixed or flexible styles for your UI that you
     	
     	static func headlineConfiguration(withAlignment: NSTextAlignment = .natural) -> UILabel.Configuration {
         	return UILabel.Configuration(textStyle: .headline,
-            	                         textColor: .red(),
+            	                         textColor: .red,
             	                         textAlignment: withAlignment,
                 	                     numberOfLines: 0)
     	}
@@ -134,9 +133,9 @@ The same can be achieved for foundation classes:
 	class MyViewController: UIViewController {
 	
     	let readFormatter = DateFormatter(configuration: .RFC3339)
-    	let writeFormatter = DateFormatter(configuration: .init(dateType: styled(date: .longStyle, time: .mediumStyle),
-                                                            locale: Locale(localeIdentifier: "en_GB"),
-                                                            timeZone: TimeZone(name: "Europe/London")!))))
+    	let writeFormatter = DateFormatter(configuration: .init(dateType: styled(date: .long, time: .medium),
+                                                            locale: Locale(identifier: "en_GB"),
+                                                            timeZone: TimeZone(identifier: "Europe/London")))))
 	}	
 
 ## Credits

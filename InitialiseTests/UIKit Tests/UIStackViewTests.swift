@@ -71,7 +71,7 @@ class UIStackViewTests: XCTestCase {
                                                translatesAutoresizingMaskIntoConstraints: auto)
         
         let stack = UIStackView(arrangedSubviews: views)
-        stack.configureWith(config)
+        stack.configure(with: config)
         
         XCTAssertEqual(stack.arrangedSubviews, views)
         XCTAssertEqual(stack.axis, axis)

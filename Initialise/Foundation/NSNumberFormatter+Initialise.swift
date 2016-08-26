@@ -22,7 +22,7 @@ public extension NumberFormatter {
      Configuration Model for an `NSNumberFormatter`.
      
      - seealso: `NSNumberFormatter.init(configuration:)`
-     - seealso: `NSNumberFormatter.configureWith(_:)`
+     - seealso: `NSNumberFormatter.configure(with:)`
      
      */
     public struct Configuration {
@@ -68,7 +68,7 @@ public extension NumberFormatter {
          - parameter maximumIntegerDigits: Optional specification, default value is nil.
          */
         public init(numberStyle: NumberFormatter.Style,
-                    locale: Locale = .current(),
+                    locale: Locale = .current,
                     minimumFractionDigits: Int? = nil,
                     maximumFractionDigits: Int? = nil,
                     minimumSignificantDigits: Int? = nil,
@@ -94,7 +94,7 @@ public extension NumberFormatter {
     /// Convenience initialiser to create a number formatter with a given set of properties.
     public convenience init(configuration: Configuration) {
         self.init()
-        configureWith(configuration)
+        configure(with: configuration)
     }
     
     /**
@@ -104,7 +104,7 @@ public extension NumberFormatter {
      - parameter configuration: The collection of properties to assign to this date formatter.
      
      */
-    public func configureWith(_ configuration: Configuration) {
+    public func configure(with configuration: Configuration) {
         
         self.numberStyle =  configuration.numberStyle
         self.locale = configuration.locale

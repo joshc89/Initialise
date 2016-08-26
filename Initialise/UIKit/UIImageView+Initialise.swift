@@ -22,7 +22,7 @@ public extension UIImageView {
      Configuration Model for a `UIImageView`.
      
      - seealso: `UIImageView.init(configuration:)`
-     - seealso: `UIImageView.configureWith(_:)`
+     - seealso: `UIImageView.configure(with:)`
      
      */
     public struct Configuration {
@@ -70,7 +70,7 @@ public extension UIImageView {
     /// Convenience initialiser to programmatically create an image view with a given set of properties.
     public convenience init(configuration: Configuration) {
         self.init(image: configuration.image)
-        self.configureWith(configuration)
+        self.configure(with: configuration)
     }
     
     /**
@@ -80,7 +80,7 @@ public extension UIImageView {
      - parameter configuration: The collection of properties to assign to this image view.
      
      */
-    public func configureWith(_ configuration: Configuration) {
+    public func configure(with configuration: Configuration) {
         self.image = configuration.image
         self.contentMode = configuration.contentMode
         self.backgroundColor = configuration.backgroundColor

@@ -24,7 +24,7 @@ public extension UIStackView {
      Configuration Model for a `UIStackView`.
      
      - seealso: `UIStackView.init(configuration:)`
-     - seealso: `UIStackView.configureWith(_:)`
+     - seealso: `UIStackView.configure(with:)`
      
      */
     public struct Configuration {
@@ -97,7 +97,7 @@ public extension UIStackView {
     public convenience init(configuration: Configuration) {
         
         self.init(arrangedSubviews: configuration.arrangedSubviews)
-        self.configureWith(configuration)
+        self.configure(with: configuration)
     }
     
     /**
@@ -109,7 +109,7 @@ public extension UIStackView {
      - parameter configuration: The collection of properties to assign to this image view.
      
     */
-    public func configureWith(_ configuration: Configuration) {
+    public func configure(with configuration: Configuration) {
         
         // TODO: Compare current arranged subviews with new arranged subviews and add / remove / insert based on differences.
         

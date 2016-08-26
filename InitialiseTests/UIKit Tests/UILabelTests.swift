@@ -26,7 +26,7 @@ class UILabelTests: XCTestCase {
     func testInitFontConfiguration() {
         
         let font = UIFont.boldSystemFont(ofSize: 12)
-        let color = UIColor.green()
+        let color = UIColor.green
         let align = NSTextAlignment.center
         let lines = 0
         let breakMode = NSLineBreakMode.byWordWrapping
@@ -50,9 +50,9 @@ class UILabelTests: XCTestCase {
     
     func testInitStyleConfiguration() {
         
-        let style = UIFontTextStyleCaption1
+        let style = UIFontTextStyle.caption1
         let font = UIFont.preferredFont(forTextStyle: style)
-        let color = UIColor.green()
+        let color = UIColor.green
         let align = NSTextAlignment.center
         let lines = 0
         let breakMode = NSLineBreakMode.byWordWrapping
@@ -75,16 +75,16 @@ class UILabelTests: XCTestCase {
     
     func testConfigure() {
         
-        let style = UIFontTextStyleCaption1
+        let style = UIFontTextStyle.caption1
         let font = UIFont.preferredFont(forTextStyle: style)
-        let color = UIColor.green()
+        let color = UIColor.green
         let align = NSTextAlignment.center
         let lines = 0
         let breakMode = NSLineBreakMode.byWordWrapping
         let translates = true
         
         let label = UILabel()
-        label.configureWith(.init(textStyle: style,
+        label.configure(with: .init(textStyle: style,
             textColor: color,
             textAlignment: align,
             numberOfLines: lines,
@@ -110,9 +110,9 @@ class UILabelTests: XCTestCase {
     func testAttributedAtext() {
         
         let attribs = [
-            NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyleCaption1),
-            NSForegroundColorAttributeName: UIColor.red()]
-        let str = AttributedString(string: "Hello World", attributes: attribs)
+            NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1),
+            NSForegroundColorAttributeName: UIColor.red]
+        let str = NSAttributedString(string: "Hello World", attributes: attribs)
         
         let label = UILabel(configuration: .init(text: .attributed(str)))
         

@@ -9,14 +9,14 @@
 import Foundation
 
 import XCTest
-import Initialise
+import Initialise 
 
 class NSDateFormatterTests: XCTestCase {
     
     let comps = DateComponents(year: 2016, month: 8, day: 23, hour: 15, minute: 33, second: 22)
     
     var date: Date {
-        return Calendar.current().date(from: comps)!
+        return Calendar.current.date(from: comps)!
     }
     
     override func setUp() {
@@ -33,8 +33,8 @@ class NSDateFormatterTests: XCTestCase {
         
         let format = "yyyy-MM-dd hh:mm:ss aa"
         let type: DateFormatter.DateType = .format(format)
-        let locale = Locale(localeIdentifier: "en_GB") // hh 12 hour clock
-        let timeZone = TimeZone(forSecondsFromGMT: 5 * 60 * 60) // == 4 hours aheaad of BST
+        let locale = Locale(identifier: "en_GB") // hh 12 hour clock
+        let timeZone = TimeZone(secondsFromGMT: 5 * 60 * 60) // == 4 hours aheaad of BST
         
         let config = DateFormatter.Configuration(dateType: type,
                                                       locale: locale,
@@ -51,12 +51,12 @@ class NSDateFormatterTests: XCTestCase {
     
     func testInitStyledConfiguration() {
         
-        let dStyle = DateFormatter.Style.longStyle
-        let tStyle = DateFormatter.Style.mediumStyle
+        let dStyle = DateFormatter.Style.long
+        let tStyle = DateFormatter.Style.medium
         
         let type: DateFormatter.DateType = .styled(date: dStyle, time: tStyle)
-        let locale = Locale(localeIdentifier: "en_GB")
-        let timeZone = TimeZone(name: "Europe/London")!
+        let locale = Locale(identifier: "en_GB")
+        let timeZone = TimeZone(identifier: "Europe/London")
         let config = DateFormatter.Configuration(dateType: type,
                                                    locale: locale,
                                                    timeZone: timeZone)
@@ -73,8 +73,8 @@ class NSDateFormatterTests: XCTestCase {
     
     func testRelative() {
         
-        let formatter = DateFormatter(configuration: DateFormatter.Configuration(dateType: .styled(date: .longStyle, time: .noStyle),
-            locale: Locale(localeIdentifier: "en_GB"),
+        let formatter = DateFormatter(configuration: .init(dateType: .styled(date: .long, time: .none),
+            locale: Locale(identifier: "en_GB"),
             doesRelativeDateFormatting: true))
         
         XCTAssertEqual(formatter.doesRelativeDateFormatting, true)
@@ -83,12 +83,12 @@ class NSDateFormatterTests: XCTestCase {
     
     func testConfigure() {
         
-        let dStyle = DateFormatter.Style.longStyle
-        let tStyle = DateFormatter.Style.mediumStyle
+        let dStyle = DateFormatter.Style.long
+        let tStyle = DateFormatter.Style.medium
         
         let type: DateFormatter.DateType = .styled(date: dStyle, time: tStyle)
-        let locale = Locale(localeIdentifier: "en_GB")
-        let timeZone = TimeZone(forSecondsFromGMT: 5 * 60 * 60)
+        let locale = Locale(identifier: "en_GB")
+        let timeZone = TimeZone(secondsFromGMT: 5 * 60 * 60)
         let rel = true
         
         let config = DateFormatter.Configuration(dateType: type,
@@ -96,7 +96,7 @@ class NSDateFormatterTests: XCTestCase {
                                                    timeZone: timeZone,
                                                    doesRelativeDateFormatting: rel)
         let formatter = DateFormatter()
-        formatter.configureWith(config)
+        formatter.configure(with: config)
         
         XCTAssertEqual(formatter.dateStyle, dStyle)
         XCTAssertEqual(formatter.timeStyle, tStyle)

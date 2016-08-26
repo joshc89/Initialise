@@ -47,10 +47,10 @@ public extension DateFormatter {
         case styled(date: DateFormatter.Style, time: DateFormatter.Style)
         
         /// Convenience creator for `.MediumStyle` date and time. 
-        public static var Default = DateType.styled(date: .mediumStyle, time: .mediumStyle)
+        public static var Default = DateType.styled(date: .medium, time: .medium)
     }
     
-    /// Sets either `dateFormat` or `dateStyle` and `timeStyle` based on the given `type`. This convenience setter is used in `configureWith(_:)`.
+    /// Sets either `dateFormat` or `dateStyle` and `timeStyle` based on the given `type`. This convenience setter is used in `configure(with:)`.
     public func setDateType(_ type: DateType) {
         
         switch type {
@@ -68,7 +68,7 @@ public extension DateFormatter {
      Configuration Model for an `NSDateFormatter`.
      
      - seealso: `NSDateFormatter.init(configuration:)`
-     - seealso: `NSDateFormatter.configureWith(_:)`
+     - seealso: `NSDateFormatter.configure(with:)`
      
      */
     public struct Configuration {
@@ -77,10 +77,10 @@ public extension DateFormatter {
         public let dateType: DateType
         
         /// Represents the `NSDateFormatter`'s `locale`.
-        public let locale: Locale
+        public let locale: Locale?
         
         /// Represents the `NSDateFormatter`'s `timeZone`.
-        public let timeZone: TimeZone
+        public let timeZone: TimeZone?
         
         /// Represents the `NSDateFormatter`'s `doesRelativeDateFormatting`.
         public let doesRelativeDateFormatting: Bool
@@ -96,8 +96,8 @@ public extension DateFormatter {
          
          */
         public init(dateType: DateType = .Default,
-             locale: Locale = .current(),
-             timeZone: TimeZone = .local(),
+             locale: Locale? = .current,
+             timeZone: TimeZone? = .autoupdatingCurrent,
              doesRelativeDateFormatting: Bool = false) {
             
             self.dateType = dateType
@@ -109,8 +109,8 @@ public extension DateFormatter {
         /// Configuration for an `NSDateFormatter` to conform to the RCF 3339 standard of formatting dates.
         public static var RFC3339: Configuration {
             return Configuration(dateType: .format("yyyy-MM-dd'T'HH:mm:ssZZZZZ"),
-                                 locale: Locale(localeIdentifier: "en_US_POSIX"),
-                                 timeZone: TimeZone(forSecondsFromGMT: 0),
+                                 locale: Locale(identifier: "en_US_POSIX"),
+                                 timeZone: TimeZone(secondsFromGMT: 0),
                                  doesRelativeDateFormatting: false)
         }
     }
@@ -118,7 +118,7 @@ public extension DateFormatter {
     /// Convenience initialiser to create a date formatter with a given set of properties.
     public convenience init(configuration: Configuration) {
         self.init()
-        self.configureWith(configuration)
+        self.configure(with: configuration)
     }
     
     /**
@@ -128,7 +128,7 @@ public extension DateFormatter {
      - parameter configuration: The collection of properties to assign to this date formatter.
      
      */
-    public func configureWith(_ configuration: Configuration) {
+    public func configure(with configuration: Configuration) {
         
         setDateType(configuration.dateType)
         locale = configuration.locale

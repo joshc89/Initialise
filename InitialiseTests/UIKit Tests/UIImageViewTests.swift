@@ -59,7 +59,7 @@ class UIImageViewTests: XCTestCase {
                                                           translatesAutoresizingMaskIntoConstraints: auto)
         
         let iv = UIImageView()
-        iv.configureWith(testConfiguration)
+        iv.configure(with: testConfiguration)
         
         XCTAssertEqual(iv.image, image)
         XCTAssertEqual(iv.contentMode, mode)

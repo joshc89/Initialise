@@ -24,12 +24,12 @@ class NSNumberFormatterTests: XCTestCase {
     func testCurrency() {
         
         let formatter = NumberFormatter(configuration: .init(numberStyle: .currency,
-            locale: Locale(localeIdentifier: "en_GB")))
+            locale: Locale(identifier: "en_GB")))
         
         XCTAssertEqual(formatter.string(from: 12.35), "£12.35")
         
         let formatter2 = NumberFormatter(configuration: .init(numberStyle: .currency,
-            locale: Locale(localeIdentifier: "en_GB"),
+            locale: Locale(identifier: "en_GB"),
             minimumFractionDigits: 0,
             maximumFractionDigits: 0))
         
@@ -40,7 +40,7 @@ class NSNumberFormatterTests: XCTestCase {
     func testFractions() {
         
         let formatter2 = NumberFormatter(configuration: .init(numberStyle: .currency,
-            locale: Locale(localeIdentifier: "en_GB"),
+            locale: Locale(identifier: "en_GB"),
             minimumFractionDigits: 0,
             maximumFractionDigits: 0))
         
@@ -51,7 +51,7 @@ class NSNumberFormatterTests: XCTestCase {
     func testSignificant() {
         
         let formatter2 = NumberFormatter(configuration: .init(numberStyle: .currency,
-            locale: Locale(localeIdentifier: "en_GB"),
+            locale: Locale(identifier: "en_GB"),
             minimumSignificantDigits: 0,
             maximumSignificantDigits: 4))
         

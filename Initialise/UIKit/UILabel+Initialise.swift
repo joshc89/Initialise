@@ -15,7 +15,7 @@ public enum Text {
     case plain(String)
     
     /// An `NSAttributedString`, typically set to an `attributedText` property.
-    case attributed(AttributedString)
+    case attributed(NSAttributedString)
     
 }
 
@@ -33,7 +33,7 @@ public extension UILabel {
      Configuration Model for a `UILabel`.
      
      - seealso: `UILabel.init(configuration:)`
-     - seealso: `UILabel.configureWith(_:)`
+     - seealso: `UILabel.configure(with:)`
      
      */
     public struct Configuration {
@@ -68,8 +68,8 @@ public extension UILabel {
          
         */
         public init(text: Text? = nil,
-                    textStyle: String = UIFontTextStyleBody,
-                    textColor: UIColor = .black(),
+                    textStyle: UIFontTextStyle = .body,
+                    textColor: UIColor = .black,
                     textAlignment: NSTextAlignment = .natural,
                     numberOfLines: Int = 1,
                     lineBreakMode: NSLineBreakMode = .byTruncatingTail,
@@ -99,7 +99,7 @@ public extension UILabel {
          */
         public init(text: Text?,
                     font: UIFont,
-                    textColor: UIColor = .black(),
+                    textColor: UIColor = .black,
                     textAlignment: NSTextAlignment = .natural,
                     numberOfLines: Int = 1,
                     lineBreakMode: NSLineBreakMode = .byTruncatingTail,
@@ -124,7 +124,7 @@ public extension UILabel {
      */
     public convenience init(configuration: Configuration) {
         self.init()
-        configureWith(configuration)
+        configure(with: configuration)
     }
     
     /** 
@@ -134,7 +134,7 @@ public extension UILabel {
      - parameter configuration: The collection of properties to assign to this label.
 
     */
-    public func configureWith(_ configuration: Configuration) {
+    public func configure(with configuration: Configuration) {
         
         self.font = configuration.font
         self.textColor = configuration.textColor
