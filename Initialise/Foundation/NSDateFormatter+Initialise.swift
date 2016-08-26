@@ -51,9 +51,9 @@ public extension DateFormatter {
     }
     
     /// Sets either `dateFormat` or `dateStyle` and `timeStyle` based on the given `type`. This convenience setter is used in `configure(with:)`.
-    public func setDateType(_ type: DateType) {
+    public func set(dateType: DateType) {
         
-        switch type {
+        switch dateType {
         case .format(let str):
             self.dateFormat = str
         case .styled(date: let dateStyle, time: let timeStyle):
@@ -62,77 +62,34 @@ public extension DateFormatter {
         }
     }
     
-    
     /**
      
-     Configuration Model for an `NSDateFormatter`.
+     Convenience initialiser to create a date formatter with a given set of properties.
      
-     - seealso: `NSDateFormatter.init(configuration:)`
-     - seealso: `NSDateFormatter.configure(with:)`
+     - parameter dateType: The way this formatter should convert between dates and strings. Default value is `DateType.Default`.
+     - parameter locale: Default value is `.current`.
+     - parameter timeZone: Default value is `.autoupdatingCurrent`.
+     - parameter doesRelativeDateFormatting: Default value is `false`.
      
      */
-    public struct Configuration {
+    public convenience init(dateType: DateType = .Default,
+                locale: Locale? = .current,
+                timeZone: TimeZone? = .autoupdatingCurrent,
+                doesRelativeDateFormatting: Bool = false) {
         
-        /// Represents either the `NSDateFormatter`'s `dateFormat` or `dateStyle` and `timeStyle`
-        public let dateType: DateType
-        
-        /// Represents the `NSDateFormatter`'s `locale`.
-        public let locale: Locale?
-        
-        /// Represents the `NSDateFormatter`'s `timeZone`.
-        public let timeZone: TimeZone?
-        
-        /// Represents the `NSDateFormatter`'s `doesRelativeDateFormatting`.
-        public let doesRelativeDateFormatting: Bool
-        
-        /**
-         
-         Default initialiser. Sets all properties.
-         
-         - parameter dateType: The way this formatter should convert between dates and strings. Default value is `DateType.Default`.
-         - parameter locale: Default value is `.currentLocale()`.
-         - parameter timeZone: Default value is `.localTimeZone()`.
-         - parameter doesRelativeDateFormatting: Default value is `false`.
-         
-         */
-        public init(dateType: DateType = .Default,
-             locale: Locale? = .current,
-             timeZone: TimeZone? = .autoupdatingCurrent,
-             doesRelativeDateFormatting: Bool = false) {
-            
-            self.dateType = dateType
-            self.locale = locale
-            self.timeZone = timeZone
-            self.doesRelativeDateFormatting = doesRelativeDateFormatting
-        }
-        
-        /// Configuration for an `NSDateFormatter` to conform to the RCF 3339 standard of formatting dates.
-        public static var RFC3339: Configuration {
-            return Configuration(dateType: .format("yyyy-MM-dd'T'HH:mm:ssZZZZZ"),
-                                 locale: Locale(identifier: "en_US_POSIX"),
-                                 timeZone: TimeZone(secondsFromGMT: 0),
-                                 doesRelativeDateFormatting: false)
-        }
-    }
-    
-    /// Convenience initialiser to create a date formatter with a given set of properties.
-    public convenience init(configuration: Configuration) {
         self.init()
-        self.configure(with: configuration)
+        
+        set(dateType: dateType)
+        self.locale = locale
+        self.timeZone = timeZone
+        self.doesRelativeDateFormatting = doesRelativeDateFormatting
     }
     
-    /**
-     
-     Configures this date formatter based on the given configuration. This is called from `init(configuration:)` after initialisation.
-     
-     - parameter configuration: The collection of properties to assign to this date formatter.
-     
-     */
-    public func configure(with configuration: Configuration) {
-        
-        setDateType(configuration.dateType)
-        locale = configuration.locale
-        timeZone = configuration.timeZone
-        doesRelativeDateFormatting = configuration.doesRelativeDateFormatting
+    /// Convenience creator for a `DateFormatter` to conform to the RCF 3339 standard of formatting dates.
+    public static var RFC3339: DateFormatter {
+        return DateFormatter(dateType: .format("yyyy-MM-dd'T'HH:mm:ssZZZZZ"),
+                             locale: Locale(identifier: "en_US_POSIX"),
+                             timeZone: TimeZone(secondsFromGMT: 0),
+                             doesRelativeDateFormatting: false)
     }
 }
