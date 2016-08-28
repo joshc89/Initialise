@@ -9,14 +9,14 @@ Simple initialisation and configuration in Swift.
 
 Create and configure programmatic UIKit components in concise initialisers:
 
-	let headline = UILabel(configuration: .init(textStyle: .headline,  
-		numberOfLines: 0))
+	let headline = UILabel(textStyle: .headline,  
+		numberOfLines: 0)
 		
-	let subheadline = UILabel(configuration: .init(textStyle: .subHeadline, 
+	let subheadline = UILabel(textStyle: .subHeadline, 
 		textColor: .lightGray, 
-		numberOfLines: 0))
+		numberOfLines: 0)
 	
-	let stack = UIStackView(configuration: .init(arrangedSubViews: [headline, subheadline],
+	let stack = UIStackView(arrangedSubViews: [headline, subheadline],
 		axis: .vertical,
 		spacing: 8.0))
 		
@@ -89,11 +89,11 @@ This puts configuration close to definition but still includes a lot of boilerpl
 
 ### Solution
 
-This library provides a collection of convenience initialisers for UIKit and Foundation classes using [Parameter Objects] as [Configuration Models] for each class. This allows for cleaner UI code:
+This library provides a collection of convenience initialisers for UIKit and Foundation classes. This allows for cleaner UI code:
 
 	class MyViewController: UIViewController {
  
-        let label = UILabel(configuration: .init(textColor: .lightGray, numberOfLines: 0))
+        let label = UILabel(text: "My label", textColor: .lightGray, numberOfLines: 0))
  
  		func viewDidLoad() {
             super.viewDidLoad()
@@ -105,38 +105,36 @@ This library provides a collection of convenience initialisers for UIKit and Fou
 
 It also becomes possible to define fixed or flexible styles for your UI that you can reuse through the app:
 
-	extension UILabel.Configuration {
+	extension UILabel {
  
-    	static var headlineConfiguration: UILabel.Configuration {
-        	return UILabel.Configuration(textStyle: .headline,
-            	                         textColor: .red(),
-                	                     numberOfLines: 0)
-    	}
-    	
-    	static func headlineConfiguration(withAlignment: NSTextAlignment = .natural) -> UILabel.Configuration {
-        	return UILabel.Configuration(textStyle: .headline,
-            	                         textColor: .red,
-            	                         textAlignment: withAlignment,
-                	                     numberOfLines: 0)
+    	static func makeHeadline(text: String) -> UILabel {
+        	return UILabel(text: withText,
+        				   textStyle: .headline,
+            	           textColor: .red,
+            	           textAlignment: .center,
+                	       numberOfLines: 0)
     	}
 	}
  
  	class MyViewController: UIViewController {
-    	let headlineLabel = UILabel(configuration: .headlineConfiguration)
-    	let centeredHeadlineLabel = UILabel(configuration: .headlineConfiguration(withAlignment: .center))
+    	let headlineLabel = UILabel.makeHeadline(text: "My Detail View")
 	}
 	
 This greatly simplifies programmatic UI creation allowing for cleaner code that is easier to write and reason about.
 
-The same can be achieved for foundation classes:
+The same can be achieved for Foundation classes:
 
 	class MyViewController: UIViewController {
 	
-    	let readFormatter = DateFormatter(configuration: .RFC3339)
-    	let writeFormatter = DateFormatter(configuration: .init(dateType: styled(date: .long, time: .medium),
-                                                            locale: Locale(identifier: "en_GB"),
-                                                            timeZone: TimeZone(identifier: "Europe/London")))))
+	 	let headlineLabel = UILabel.makeHeadline(text: "My Detail View")
+	 	
+    	let readFormatter = DateFormatter.RFC3339
+    	let writeFormatter = DateFormatter(dateType: styled(date: .long, time: .medium),
+                                           locale: Locale(identifier: "en_GB"),
+                                           timeZone: TimeZone(identifier: "Europe/London"))
 	}	
+
+Now your `viewDidLoad()` method can simply create the hierarchy without lots of boilerplate code setting up each view.
 
 ## Credits
 

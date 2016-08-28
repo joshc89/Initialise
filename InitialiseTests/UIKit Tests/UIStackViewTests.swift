@@ -31,14 +31,14 @@ class UIStackViewTests: XCTestCase {
         let margins = true
         let auto = true
         
-        let stack = UIStackView(configuration: UIStackView.Configuration(arrangedSubviews: views,
+        let stack = UIStackView(arrangedSubviews: views,
             axis: axis,
             distribution: distribution,
             alignment: alignment,
             spacing: spacing,
             isBaselineRelativeArrangement: baseline,
             isLayoutMarginsRelativeArrangement: margins,
-            translatesAutoresizingMaskIntoConstraints: auto))
+            translatesAutoresizingMaskIntoConstraints: auto)
         
         XCTAssertEqual(stack.arrangedSubviews, views)
         XCTAssertEqual(stack.axis, axis)
@@ -49,38 +49,4 @@ class UIStackViewTests: XCTestCase {
         XCTAssertEqual(stack.isLayoutMarginsRelativeArrangement, margins)
         XCTAssertEqual(stack.translatesAutoresizingMaskIntoConstraints, auto)
     }
-    
-    func testConfigure() {
-        
-        let views = [UIImageView(), UIButton(), UILabel()]
-        let axis = UILayoutConstraintAxis.vertical
-        let distribution = UIStackViewDistribution.equalSpacing
-        let alignment = UIStackViewAlignment.leading
-        let spacing:CGFloat = 8.0
-        let baseline = true
-        let margins = true
-        let auto = true
-        
-        let config = UIStackView.Configuration(arrangedSubviews: [],
-                                               axis: axis,
-                                               distribution: distribution,
-                                               alignment: alignment,
-                                               spacing: spacing,
-                                               isBaselineRelativeArrangement: baseline,
-                                               isLayoutMarginsRelativeArrangement: margins,
-                                               translatesAutoresizingMaskIntoConstraints: auto)
-        
-        let stack = UIStackView(arrangedSubviews: views)
-        stack.configure(with: config)
-        
-        XCTAssertEqual(stack.arrangedSubviews, views)
-        XCTAssertEqual(stack.axis, axis)
-        XCTAssertEqual(stack.distribution, distribution)
-        XCTAssertEqual(stack.alignment, alignment)
-        XCTAssertEqual(stack.spacing, spacing)
-        XCTAssertEqual(stack.isBaselineRelativeArrangement, baseline)
-        XCTAssertEqual(stack.isLayoutMarginsRelativeArrangement, margins)
-        XCTAssertEqual(stack.translatesAutoresizingMaskIntoConstraints, auto)
-    }
-
 }

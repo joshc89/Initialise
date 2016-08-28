@@ -30,36 +30,11 @@ class UIImageViewTests: XCTestCase {
         let opaque = false
         let auto = true
         
-        
-        let iv = UIImageView(configuration: .init(image: image,
-                                                  contentMode: mode,
-                                                  backgroundColor: bg,
-                                                  isOpaque: opaque,
-                                                  translatesAutoresizingMaskIntoConstraints: auto))
-        
-        XCTAssertEqual(iv.image, image)
-        XCTAssertEqual(iv.contentMode, mode)
-        XCTAssertEqual(iv.backgroundColor, bg)
-        XCTAssertEqual(iv.isOpaque, opaque)
-        XCTAssertEqual(iv.translatesAutoresizingMaskIntoConstraints, auto)
-    }
-    
-    func testConfigure() {
-        
-        let image = UIImage(named: "ic_phone_iphone")
-        let mode = UIViewContentMode.scaleAspectFit
-        let bg = UIColor(white: 0.95, alpha: 1.0)
-        let opaque = false
-        let auto = true
-        
-        let testConfiguration = UIImageView.Configuration(image: image,
-                                                          contentMode: mode,
-                                                          backgroundColor: bg,
-                                                          isOpaque: opaque,
-                                                          translatesAutoresizingMaskIntoConstraints: auto)
-        
-        let iv = UIImageView()
-        iv.configure(with: testConfiguration)
+        let iv = UIImageView(image: image,
+                             contentMode: mode,
+                             backgroundColor: bg,
+                             isOpaque: opaque,
+                             translatesAutoresizingMaskIntoConstraints: auto)
         
         XCTAssertEqual(iv.image, image)
         XCTAssertEqual(iv.contentMode, mode)
@@ -67,5 +42,4 @@ class UIImageViewTests: XCTestCase {
         XCTAssertEqual(iv.isOpaque, opaque)
         XCTAssertEqual(iv.translatesAutoresizingMaskIntoConstraints, auto)
     }
-
 }
