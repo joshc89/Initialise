@@ -21,7 +21,7 @@ Create and configure programmatic UIKit components in concise initialisers:
 		spacing: 8.0))
 		
 		
-[Parameter Objects] are given for the following classes.
+Convenience initialisers are given for the following classes.
 
 * UIKit
 	* `UILabel`
