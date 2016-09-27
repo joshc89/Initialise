@@ -25,11 +25,14 @@ Convenience initialisers are given for the following classes.
 
 * UIKit
 	* `UILabel`
+	* `UIButton`
 	* `UIImageView`
+	* `UITextField`
 	* `UIStackView`
+	* `UIActivityIndicatorView`
 * Foundation
-	* `NSDateFormatter`
-	* `NSNumberFormatter`
+	* `DateFormatter`
+	* `NumberFormatter`
 
 [Documentation](https://joshc89.github.io/Initialise/) is available for all of these extensions.
 
