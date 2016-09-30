@@ -35,7 +35,7 @@ public extension UIStackView {
      */
     public convenience init(arrangedSubviews: [UIView],
                 axis: UILayoutConstraintAxis = .horizontal,
-                distribution: UIStackViewDistribution,
+                distribution: UIStackViewDistribution = .fill,
                 alignment: UIStackViewAlignment = .fill,
                 spacing: CGFloat = 0.0,
                 isBaselineRelativeArrangement: Bool = false,
