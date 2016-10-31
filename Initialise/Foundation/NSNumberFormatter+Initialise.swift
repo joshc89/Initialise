@@ -10,126 +10,64 @@ import Foundation
 
 /**
  
- Extension to allow configuration through a parameter object type. As `NSNumberFormatter`s can be expensive to create, `static` class level variables are a good candidate for specifying a formatter. Typically this can be done in a closure. The `NSNumberFormatter.Configuration` struct allows this to be simplifier.
+ As `NumberFormatter`s can be expensive to create, `static` class level variables are a good candidate for specifying a formatter. Typically this can be done in a closure. These convenience initialisers allow this to be simplified.
  
  See the [ReadMe](https://github.com/joshc89/Initialise) for examples.
  
  */
-public extension NSNumberFormatter {
+public extension NumberFormatter {
     
     /**
      
-     Configuration Model for an `NSNumberFormatter`.
+     Convenience initialiser to create a number formatter with a given set of properties.
      
-     - seealso: `NSNumberFormatter.init(configuration:)`
-     - seealso: `NSNumberFormatter.configureWith(_:)`
+     - parameter numberStyle: Must be provided.
+     - parameter locale: Default value is `.current`.
      
+     - parameter minimumFractionDigits: Optional specification. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`. Default value is nil.
+     - parameter maximumFractionDigits: Optional specification. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`. Default value is nil.
+     
+     - parameter minimumSignificantDigits: Optional specification. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`. Default value is nil.
+     - parameter maximumSignificantDigits: Optional specification. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`. Default value is nil.
+     
+     - parameter minimumIntegerDigits: Optional specification. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`. Default value is nil.
+     - parameter maximumIntegerDigits: Optional specification. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`. Default value is nil.
      */
-    public struct Configuration {
+    public convenience init(numberStyle: NumberFormatter.Style,
+                locale: Locale? = .current,
+                minimumFractionDigits: Int? = nil,
+                maximumFractionDigits: Int? = nil,
+                minimumSignificantDigits: Int? = nil,
+                maximumSignificantDigits: Int? = nil,
+                minimumIntegerDigits: Int? = nil,
+                maximumIntegerDigits: Int? = nil) {
         
-        /// Represents the number formatter's `numberStyle`.
-        public let numberStyle: NSNumberFormatterStyle
-        
-        /// Represents the number formatter's `locale`.
-        public let locale: NSLocale
-        
-        /// Optional representation of `minimumFractionDigits`. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`.
-        public let minimumFractionDigits: Int?
-        
-        /// Optional representation of `maximumFractionDigits`. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`.
-        public let maximumFractionDigits: Int?
-        
-        /// Optional representation of `minimumSignificantDigits`. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`.
-        public let minimumSignificantDigits: Int?
-        
-        /// Optional representation of `maximumSignificantDigits`. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`.
-        public let maximumSignificantDigits: Int?
-        
-        /// Optional representation of `minimumIntegerDigits`. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`.
-        public let minimumIntegerDigits: Int?
-        
-        /// Optional representation of `maximumIntegerDigits`. This can be `nil` to leave the number formatter with the default value given by the `numberStyle`.
-        public let maximumIntegerDigits: Int?
-        
-        /**
-         
-         Default initialiser. 
-         
-         - parameter numberStyle: Must be provided.
-         - parameter locale: Default value is `.currentLocale()`.
-         
-         - parameter minimumFractionDigits: Optional specification, default value is nil.
-         - parameter maximumFractionDigits: Optional specification, default value is nil.
-         
-         - parameter minimumSignificantDigits: Optional specification, default value is nil.
-         - parameter maximumSignificantDigits: Optional specification, default value is nil.
-         
-         - parameter minimumIntegerDigits: Optional specification, default value is nil.
-         - parameter maximumIntegerDigits: Optional specification, default value is nil.
-         */
-        public init(numberStyle: NSNumberFormatterStyle,
-                    locale: NSLocale = NSLocale.currentLocale(),
-                    minimumFractionDigits: Int? = nil,
-                    maximumFractionDigits: Int? = nil,
-                    minimumSignificantDigits: Int? = nil,
-                    maximumSignificantDigits: Int? = nil,
-                    minimumIntegerDigits: Int? = nil,
-                    maximumIntegerDigits: Int? = nil) {
-            
-            
-            self.numberStyle = numberStyle
-            self.locale = locale
-            
-            self.minimumFractionDigits = minimumFractionDigits
-            self.maximumFractionDigits = maximumFractionDigits
-            
-            self.minimumSignificantDigits = minimumSignificantDigits
-            self.maximumSignificantDigits = maximumSignificantDigits
-            
-            self.minimumIntegerDigits = minimumIntegerDigits
-            self.maximumIntegerDigits = maximumIntegerDigits
-        }
-    }
-    
-    /// Convenience initialiser to create a number formatter with a given set of properties.
-    public convenience init(configuration: Configuration) {
         self.init()
-        configureWith(configuration)
-    }
-    
-    /**
-     
-     Configures this number formatter based on the given configuration. This is called from `init(configuration:)` after initialisation.
-     
-     - parameter configuration: The collection of properties to assign to this date formatter.
-     
-     */
-    public func configureWith(configuration: Configuration) {
         
-        self.numberStyle =  configuration.numberStyle
-        self.locale = configuration.locale
+        self.numberStyle = numberStyle
+        self.locale = locale
         
-        if let m = configuration.maximumFractionDigits {
+        if let m = maximumFractionDigits {
             self.minimumFractionDigits = m
         }
         
-        if let m = configuration.minimumFractionDigits {
+        if let m = minimumFractionDigits {
             self.maximumFractionDigits = m
         }
         
-        if let m = configuration.minimumSignificantDigits {
+        if let m = minimumSignificantDigits {
             self.minimumSignificantDigits = m
         }
         
-        if let m = configuration.maximumSignificantDigits {
+        if let m = maximumSignificantDigits {
             self.maximumSignificantDigits = m
         }
         
-        if let m = configuration.minimumIntegerDigits {
+        if let m = minimumIntegerDigits {
             self.minimumIntegerDigits = m
         }
         
-        if let m = configuration.maximumIntegerDigits {
+        if let m = maximumIntegerDigits {
             self.maximumIntegerDigits = m
         }
     }

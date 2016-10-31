@@ -23,51 +23,51 @@ class NSNumberFormatterTests: XCTestCase {
 
     func testCurrency() {
         
-        let formatter = NSNumberFormatter(configuration: NSNumberFormatter.Configuration(numberStyle: .CurrencyStyle,
-            locale: NSLocale(localeIdentifier: "en_GB")))
+        let formatter = NumberFormatter(numberStyle: .currency,
+            locale: Locale(identifier: "en_GB"))
         
-        XCTAssertEqual(formatter.stringFromNumber(12.35), "£12.35")
+        XCTAssertEqual(formatter.string(from: 12.35), "£12.35")
         
-        let formatter2 = NSNumberFormatter(configuration: NSNumberFormatter.Configuration(numberStyle: .CurrencyStyle,
-            locale: NSLocale(localeIdentifier: "en_GB"),
+        let formatter2 = NumberFormatter(numberStyle: .currency,
+            locale: Locale(identifier: "en_GB"),
             minimumFractionDigits: 0,
-            maximumFractionDigits: 0))
+            maximumFractionDigits: 0)
         
-        XCTAssertEqual(formatter2.stringFromNumber(12.35), "£12")
-        XCTAssertEqual(formatter2.stringFromNumber(12.78), "£13")
+        XCTAssertEqual(formatter2.string(from: 12.35), "£12")
+        XCTAssertEqual(formatter2.string(from: 12.78), "£13")
     }
     
     func testFractions() {
         
-        let formatter2 = NSNumberFormatter(configuration: NSNumberFormatter.Configuration(numberStyle: .CurrencyStyle,
-            locale: NSLocale(localeIdentifier: "en_GB"),
+        let formatter2 = NumberFormatter(numberStyle: .currency,
+            locale: Locale(identifier: "en_GB"),
             minimumFractionDigits: 0,
-            maximumFractionDigits: 0))
+            maximumFractionDigits: 0)
         
-        XCTAssertEqual(formatter2.stringFromNumber(12.35), "£12")
-        XCTAssertEqual(formatter2.stringFromNumber(12.78), "£13")
+        XCTAssertEqual(formatter2.string(from: 12.35), "£12")
+        XCTAssertEqual(formatter2.string(from: 12.78), "£13")
     }
     
     func testSignificant() {
         
-        let formatter2 = NSNumberFormatter(configuration: NSNumberFormatter.Configuration(numberStyle: .CurrencyStyle,
-            locale: NSLocale(localeIdentifier: "en_GB"),
+        let formatter2 = NumberFormatter(numberStyle: .currency,
+            locale: Locale(identifier: "en_GB"),
             minimumSignificantDigits: 0,
-            maximumSignificantDigits: 4))
+            maximumSignificantDigits: 4)
         
-        XCTAssertEqual(formatter2.stringFromNumber(12.35), "£12.35")
-        XCTAssertEqual(formatter2.stringFromNumber(1222.78), "£1,223")
-        XCTAssertEqual(formatter2.stringFromNumber(1222280), "£1,222,000")
+        XCTAssertEqual(formatter2.string(from: 12.35), "£12.35")
+        XCTAssertEqual(formatter2.string(from: 1222.78), "£1,223")
+        XCTAssertEqual(formatter2.string(from: 1222280), "£1,222,000")
     }
     
     func testInteger() {
         
-        let formatter = NSNumberFormatter(configuration: NSNumberFormatter.Configuration(numberStyle: .DecimalStyle,
+        let formatter = NumberFormatter(numberStyle: .decimal,
             minimumIntegerDigits: 3,
-            maximumIntegerDigits: 5))
+            maximumIntegerDigits: 5)
         
-        XCTAssertEqual(formatter.stringFromNumber(12), "012")
-        XCTAssertEqual(formatter.stringFromNumber(123456), "23,456")
+        XCTAssertEqual(formatter.string(from: 12), "012")
+        XCTAssertEqual(formatter.string(from: 123456), "23,456")
         
     }
 }

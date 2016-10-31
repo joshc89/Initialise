@@ -25,20 +25,20 @@ class UILabelTests: XCTestCase {
     
     func testInitFontConfiguration() {
         
-        let font = UIFont.boldSystemFontOfSize(12)
-        let color = UIColor.greenColor()
-        let align = NSTextAlignment.Center
+        let font = UIFont.boldSystemFont(ofSize: 12)
+        let color = UIColor.green
+        let align = NSTextAlignment.center
         let lines = 0
-        let breakMode = NSLineBreakMode.ByWordWrapping
+        let breakMode = NSLineBreakMode.byWordWrapping
         let translates = true
         
-        let label = UILabel(configuration: UILabel.Configuration(text: nil,
-            font: font,
-            textColor: color,
-            textAlignment: align,
-            numberOfLines: lines,
-            lineBreakMode: breakMode,
-            translatesAutoresizingMaskIntoConstraints: translates))
+        let label = UILabel(text: nil,
+                            font: font,
+                            textColor: color,
+                            textAlignment: align,
+                            numberOfLines: lines,
+                            lineBreakMode: breakMode,
+                            translatesAutoresizingMaskIntoConstraints: translates)
         
         XCTAssertEqual(label.font, font)
         XCTAssertEqual(label.textColor, color)
@@ -50,20 +50,21 @@ class UILabelTests: XCTestCase {
     
     func testInitStyleConfiguration() {
         
-        let style = UIFontTextStyleCaption1
-        let font = UIFont.preferredFontForTextStyle(style)
-        let color = UIColor.greenColor()
-        let align = NSTextAlignment.Center
+        let style = UIFontTextStyle.caption1
+        let font = UIFont.preferredFont(forTextStyle: style)
+        let color = UIColor.green
+        let align = NSTextAlignment.center
         let lines = 0
-        let breakMode = NSLineBreakMode.ByWordWrapping
+        let breakMode = NSLineBreakMode.byWordWrapping
         let translates = true
         
-        let label = UILabel(configuration: UILabel.Configuration(textStyle: style,
-            textColor: color,
-            textAlignment: align,
-            numberOfLines: lines,
-            lineBreakMode: breakMode,
-            translatesAutoresizingMaskIntoConstraints: translates))
+        let label = UILabel(text: nil,
+                            textStyle: style,
+                            textColor: color,
+                            textAlignment: align,
+                            numberOfLines: lines,
+                            lineBreakMode: breakMode,
+                            translatesAutoresizingMaskIntoConstraints: translates)
         
         XCTAssertEqual(label.font, font)
         XCTAssertEqual(label.textColor, color)
@@ -71,40 +72,12 @@ class UILabelTests: XCTestCase {
         XCTAssertEqual(label.numberOfLines, lines)
         XCTAssertEqual(label.lineBreakMode, breakMode)
         XCTAssertEqual(label.translatesAutoresizingMaskIntoConstraints, translates)
-    }
-    
-    func testConfigure() {
-        
-        let style = UIFontTextStyleCaption1
-        let font = UIFont.preferredFontForTextStyle(style)
-        let color = UIColor.greenColor()
-        let align = NSTextAlignment.Center
-        let lines = 0
-        let breakMode = NSLineBreakMode.ByWordWrapping
-        let translates = true
-        
-        let label = UILabel()
-        label.configureWith(UILabel.Configuration(textStyle: style,
-            textColor: color,
-            textAlignment: align,
-            numberOfLines: lines,
-            lineBreakMode: breakMode,
-            translatesAutoresizingMaskIntoConstraints: translates))
-        
-        XCTAssertEqual(label.font, font)
-        XCTAssertEqual(label.textColor, color)
-        XCTAssertEqual(label.textAlignment, align)
-        XCTAssertEqual(label.numberOfLines, lines)
-        XCTAssertEqual(label.lineBreakMode, breakMode)
-        XCTAssertEqual(label.translatesAutoresizingMaskIntoConstraints, translates)
-
-        
     }
     
     func testPlainText() {
         
         let str = "Hello World"
-        let label = UILabel(configuration: UILabel.Configuration(text: .Plain(str)))
+        let label = UILabel(text: .plain(str))
         
         XCTAssertEqual(label.text, str)
     }
@@ -112,11 +85,11 @@ class UILabelTests: XCTestCase {
     func testAttributedAtext() {
         
         let attribs = [
-            NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1),
-            NSForegroundColorAttributeName: UIColor.redColor()]
+            NSFontAttributeName: UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1),
+            NSForegroundColorAttributeName: UIColor.red]
         let str = NSAttributedString(string: "Hello World", attributes: attribs)
         
-        let label = UILabel(configuration: UILabel.Configuration(text: .Attributed(str)))
+        let label = UILabel(text: .attributed(str))
         
         XCTAssertEqual(label.attributedText, str)
     }

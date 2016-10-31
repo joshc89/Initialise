@@ -9,14 +9,14 @@
 import Foundation
 
 import XCTest
-import Initialise
+import Initialise 
 
 class NSDateFormatterTests: XCTestCase {
     
-    let comps = NSDateComponents(configuration: NSDateComponents.Configuration(year: 2016, month: 8, day: 23, hour: 15, minute: 33, second: 22))
+    let comps = DateComponents(year: 2016, month: 8, day: 23, hour: 15, minute: 33, second: 22)
     
-    var date: NSDate {
-        return NSCalendar.currentCalendar().dateFromComponents(comps)!
+    var date: Date {
+        return Calendar.current.date(from: comps)!
     }
     
     override func setUp() {
@@ -32,78 +32,50 @@ class NSDateFormatterTests: XCTestCase {
     func testInitFormatConfiguration() {
         
         let format = "yyyy-MM-dd hh:mm:ss aa"
-        let type: NSDateFormatter.DateType = .Format(format)
-        let locale = NSLocale(localeIdentifier: "en_GB") // hh 12 hour clock
-        let timeZone = NSTimeZone(forSecondsFromGMT: 5 * 60 * 60) // == 4 hours aheaad of BST
+        let type: DateFormatter.DateType = .format(format)
+        let locale = Locale(identifier: "en_GB") // hh 12 hour clock
+        let timeZone = TimeZone(secondsFromGMT: 5 * 60 * 60) // == 4 hours aheaad of BST
         
-        let config = NSDateFormatter.Configuration(dateType: type,
-                                                      locale: locale,
-                                                      timeZone: timeZone)
-        let formatter = NSDateFormatter(configuration: config)
+        let formatter = DateFormatter(dateType: type,
+                                      locale: locale,
+                                      timeZone: timeZone)
         
         XCTAssertEqual(formatter.dateFormat, format)
         XCTAssertEqual(formatter.locale, locale)
         XCTAssertEqual(formatter.timeZone, timeZone)
         XCTAssertEqual(formatter.doesRelativeDateFormatting, false)
         
-        XCTAssertEqual(formatter.stringFromDate(date), "2016-08-23 07:33:22 pm")
+        XCTAssertEqual(formatter.string(from: date), "2016-08-23 07:33:22 pm")
     }
     
     func testInitStyledConfiguration() {
         
-        let dStyle = NSDateFormatterStyle.LongStyle
-        let tStyle = NSDateFormatterStyle.MediumStyle
+        let dStyle = DateFormatter.Style.long
+        let tStyle = DateFormatter.Style.medium
         
-        let type: NSDateFormatter.DateType = .Styled(date: dStyle, time: tStyle)
-        let locale = NSLocale(localeIdentifier: "en_GB")
-        let timeZone = NSTimeZone(name: "Europe/London")!
-        let config = NSDateFormatter.Configuration(dateType: type,
-                                                   locale: locale,
-                                                   timeZone: timeZone)
+        let type: DateFormatter.DateType = .styled(date: dStyle, time: tStyle)
+        let locale = Locale(identifier: "en_GB")
+        let timeZone = TimeZone(identifier: "Europe/London")
         
-        let formatter = NSDateFormatter(configuration: config)
+        let formatter = DateFormatter(dateType: type,
+                                      locale: locale,
+                                      timeZone: timeZone)
         
         XCTAssertEqual(formatter.dateStyle, dStyle)
         XCTAssertEqual(formatter.timeStyle, tStyle)
         XCTAssertEqual(formatter.locale, locale)
         XCTAssertEqual(formatter.timeZone, timeZone)
         
-        XCTAssertEqual(formatter.stringFromDate(date), "23 August 2016 at 15:33:22")
+        XCTAssertEqual(formatter.string(from: date), "23 August 2016 at 15:33:22")
     }
     
     func testRelative() {
         
-        let formatter = NSDateFormatter(configuration: NSDateFormatter.Configuration(dateType: .Styled(date: .LongStyle, time: .NoStyle),
-            locale: NSLocale(localeIdentifier: "en_GB"),
-            doesRelativeDateFormatting: true))
+        let formatter = DateFormatter(dateType: .styled(date: .long, time: .none),
+            locale: Locale(identifier: "en_GB"),
+            doesRelativeDateFormatting: true)
         
         XCTAssertEqual(formatter.doesRelativeDateFormatting, true)
-        XCTAssertEqual(formatter.stringFromDate(NSDate()), "Today")
-    }
-    
-    func testConfigure() {
-        
-        let dStyle = NSDateFormatterStyle.LongStyle
-        let tStyle = NSDateFormatterStyle.MediumStyle
-        
-        let type: NSDateFormatter.DateType = .Styled(date: dStyle, time: tStyle)
-        let locale = NSLocale(localeIdentifier: "en_GB")
-        let timeZone = NSTimeZone(forSecondsFromGMT: 5 * 60 * 60)
-        let rel = true
-        
-        let config = NSDateFormatter.Configuration(dateType: type,
-                                                   locale: locale,
-                                                   timeZone: timeZone,
-                                                   doesRelativeDateFormatting: rel)
-        let formatter = NSDateFormatter()
-        formatter.configureWith(config)
-        
-        XCTAssertEqual(formatter.dateStyle, dStyle)
-        XCTAssertEqual(formatter.timeStyle, tStyle)
-        XCTAssertEqual(formatter.locale, locale)
-        XCTAssertEqual(formatter.timeZone, timeZone)
-        XCTAssertEqual(formatter.doesRelativeDateFormatting, rel)
-
-        
+        XCTAssertEqual(formatter.string(from: Date()), "Today")
     }
 }

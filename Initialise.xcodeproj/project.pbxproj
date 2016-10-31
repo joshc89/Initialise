@@ -13,8 +13,6 @@
 		A56B4FC11D6749820057D596 /* UIStackView+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B4FBE1D6749820057D596 /* UIStackView+Initialise.swift */; };
 		A56B4FC31D6749940057D596 /* NSDateFormatter+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B4FC21D6749940057D596 /* NSDateFormatter+Initialise.swift */; };
 		A56B4FC51D6749A30057D596 /* NSNumberFormatter+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B4FC41D6749A30057D596 /* NSNumberFormatter+Initialise.swift */; };
-		A57270BF1D6C927F00892408 /* NSDateComponents+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57270BE1D6C927F00892408 /* NSDateComponents+Initialise.swift */; };
-		A57270C11D6C9BE600892408 /* NSDateComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57270C01D6C9BE600892408 /* NSDateComponentsTests.swift */; };
 		A57270C31D6CA0AF00892408 /* NSNumberFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57270C21D6CA0AF00892408 /* NSNumberFormatterTests.swift */; };
 		A5A94E141D6480C80036B822 /* Initialise.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A94E131D6480C80036B822 /* Initialise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5A94E1B1D6480C80036B822 /* Initialise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A94E101D6480C80036B822 /* Initialise.framework */; };
@@ -23,6 +21,9 @@
 		A5E984041D67528600D2D13D /* UILabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E984011D67528600D2D13D /* UILabelTests.swift */; };
 		A5E984051D67528600D2D13D /* UIStackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E984021D67528600D2D13D /* UIStackViewTests.swift */; };
 		A5EBBF0E1D65A25700DED17F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5EBBF0D1D65A25700DED17F /* Media.xcassets */; };
+		D65B0C0C1D954B2000F90F40 /* UIActivityIndicatorView+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B0C0B1D954B2000F90F40 /* UIActivityIndicatorView+Initialise.swift */; };
+		D65B0C0E1D954C1500F90F40 /* UIButton+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B0C0D1D954C1500F90F40 /* UIButton+Initialise.swift */; };
+		D65B0C101D954CEF00F90F40 /* UITextField+Initialise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B0C0F1D954CEF00F90F40 /* UITextField+Initialise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +43,6 @@
 		A56B4FBE1D6749820057D596 /* UIStackView+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Initialise.swift"; sourceTree = "<group>"; };
 		A56B4FC21D6749940057D596 /* NSDateFormatter+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+Initialise.swift"; sourceTree = "<group>"; };
 		A56B4FC41D6749A30057D596 /* NSNumberFormatter+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumberFormatter+Initialise.swift"; sourceTree = "<group>"; };
-		A57270BE1D6C927F00892408 /* NSDateComponents+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateComponents+Initialise.swift"; sourceTree = "<group>"; };
-		A57270C01D6C9BE600892408 /* NSDateComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComponentsTests.swift; sourceTree = "<group>"; };
 		A57270C21D6CA0AF00892408 /* NSNumberFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberFormatterTests.swift; sourceTree = "<group>"; };
 		A5A94E101D6480C80036B822 /* Initialise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Initialise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A94E131D6480C80036B822 /* Initialise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Initialise.h; sourceTree = "<group>"; };
@@ -55,6 +54,9 @@
 		A5E984011D67528600D2D13D /* UILabelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelTests.swift; sourceTree = "<group>"; };
 		A5E984021D67528600D2D13D /* UIStackViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewTests.swift; sourceTree = "<group>"; };
 		A5EBBF0D1D65A25700DED17F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		D65B0C0B1D954B2000F90F40 /* UIActivityIndicatorView+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+Initialise.swift"; sourceTree = "<group>"; };
+		D65B0C0D1D954C1500F90F40 /* UIButton+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Initialise.swift"; sourceTree = "<group>"; };
+		D65B0C0F1D954CEF00F90F40 /* UITextField+Initialise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Initialise.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				A56B4FC21D6749940057D596 /* NSDateFormatter+Initialise.swift */,
-				A57270BE1D6C927F00892408 /* NSDateComponents+Initialise.swift */,
 				A56B4FC41D6749A30057D596 /* NSNumberFormatter+Initialise.swift */,
 			);
 			path = Foundation;
@@ -92,6 +93,9 @@
 				A56B4FBC1D6749820057D596 /* UIImageView+Initialise.swift */,
 				A56B4FBD1D6749820057D596 /* UILabel+Initialise.swift */,
 				A56B4FBE1D6749820057D596 /* UIStackView+Initialise.swift */,
+				D65B0C0B1D954B2000F90F40 /* UIActivityIndicatorView+Initialise.swift */,
+				D65B0C0D1D954C1500F90F40 /* UIButton+Initialise.swift */,
+				D65B0C0F1D954CEF00F90F40 /* UITextField+Initialise.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -141,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				A52A438C1D67536B000E9E21 /* NSDateFormatterTests.swift */,
-				A57270C01D6C9BE600892408 /* NSDateComponentsTests.swift */,
 				A57270C21D6CA0AF00892408 /* NSNumberFormatterTests.swift */,
 			);
 			path = "Foundation Tests";
@@ -214,14 +217,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Josh Campion";
 				TargetAttributes = {
 					A5A94E0F1D6480C80036B822 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					A5A94E191D6480C80036B822 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -266,12 +271,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D65B0C0C1D954B2000F90F40 /* UIActivityIndicatorView+Initialise.swift in Sources */,
 				A56B4FC31D6749940057D596 /* NSDateFormatter+Initialise.swift in Sources */,
 				A56B4FC01D6749820057D596 /* UILabel+Initialise.swift in Sources */,
 				A56B4FBF1D6749820057D596 /* UIImageView+Initialise.swift in Sources */,
+				D65B0C101D954CEF00F90F40 /* UITextField+Initialise.swift in Sources */,
+				D65B0C0E1D954C1500F90F40 /* UIButton+Initialise.swift in Sources */,
 				A56B4FC51D6749A30057D596 /* NSNumberFormatter+Initialise.swift in Sources */,
 				A56B4FC11D6749820057D596 /* UIStackView+Initialise.swift in Sources */,
-				A57270BF1D6C927F00892408 /* NSDateComponents+Initialise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +290,6 @@
 				A5E984051D67528600D2D13D /* UIStackViewTests.swift in Sources */,
 				A5A94E201D6480C90036B822 /* InitialiseTests.swift in Sources */,
 				A5E984041D67528600D2D13D /* UILabelTests.swift in Sources */,
-				A57270C11D6C9BE600892408 /* NSDateComponentsTests.swift in Sources */,
 				A52A438D1D67536B000E9E21 /* NSDateFormatterTests.swift in Sources */,
 				A57270C31D6CA0AF00892408 /* NSNumberFormatterTests.swift in Sources */,
 			);
@@ -408,6 +414,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -427,6 +434,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.joshcampion.Initialise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -437,6 +446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.joshcampion.InitialiseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -447,6 +457,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.joshcampion.InitialiseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

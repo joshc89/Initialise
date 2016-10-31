@@ -9,30 +9,30 @@ Simple initialisation and configuration in Swift.
 
 Create and configure programmatic UIKit components in concise initialisers:
 
-*Note: Swift 3 syntax is more concise*
-
-	let headline = UILabel(configuration: UILabel.Configuration(textStyle: UIFontTextStyleHeadline,  
-		numberOfLines: 0))
+	let headline = UILabel(textStyle: .headline,  
+		numberOfLines: 0)
 		
-	let subheadline = UILabel(configuration: UILabel.Configuration(textStyle: UIFontTextStyleSubHeadline, 
-		textColor: UIColor.lightGrayColor(), 
-		numberOfLines: 0))
+	let subheadline = UILabel(textStyle: .subHeadline, 
+		textColor: .lightGray, 
+		numberOfLines: 0)
 	
-	let stack = UIStackView(configuration: UIStackView.Configuration(arrangedSubViews: [headline, subheadline],
-		axis: .Vertical,
+	let stack = UIStackView(arrangedSubViews: [headline, subheadline],
+		axis: .vertical,
 		spacing: 8.0))
 		
 		
-[Parameter Objects] are given for the following classes.
+Convenience initialisers are given for the following classes.
 
 * UIKit
 	* `UILabel`
+	* `UIButton`
 	* `UIImageView`
+	* `UITextField`
 	* `UIStackView`
+	* `UIActivityIndicatorView`
 * Foundation
-	* `NSDateFormatter`
-	* `NSDateComponents`
-	* `NSNumberFormatter`
+	* `DateFormatter`
+	* `NumberFormatter`
 
 [Documentation](https://joshc89.github.io/Initialise/) is available for all of these extensions.
 
@@ -51,8 +51,8 @@ Programmatic UI can have advantages over Storyboards however it can become cumbe
         func viewDidLoad() {
             super.viewDidLoad()
  
- 			label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-            label.textColor = UIColor.lightGrayColor()
+ 			label.font = UIFont.preferredFont(forTextStyle: .body)
+            label.textColor = .lightGray
             label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
             
@@ -73,8 +73,8 @@ As the number of elements grows so does the size of `viewDidLoad(_:)`, `init(..
         let titleLabel: UILabel = {
         
 	        let label = UILabel()
-    	    label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-            label.textColor = UIColor.lightGrayColor()
+    	    label.font = UIFont.preferredFont(forTextStyle: .body)
+            label.textColor = .lightGray
             label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -92,11 +92,11 @@ This puts configuration close to definition but still includes a lot of boilerpl
 
 ### Solution
 
-This library provides a collection of convenience initialisers for UIKit and Foundation classes using [Parameter Objects] as [Configuration Models] for each class. This allows for cleaner UI code:
+This library provides a collection of convenience initialisers for UIKit and Foundation classes. This allows for cleaner UI code:
 
 	class MyViewController: UIViewController {
  
-        let label = UILabel(configuration: UILabel.Configuration(textColor: UIColor.lightGrayColor(), numberOfLines: 0))
+        let label = UILabel(text: "My label", textColor: .lightGray, numberOfLines: 0))
  
  		func viewDidLoad() {
             super.viewDidLoad()
@@ -108,38 +108,36 @@ This library provides a collection of convenience initialisers for UIKit and Fou
 
 It also becomes possible to define fixed or flexible styles for your UI that you can reuse through the app:
 
-	extension UILabel.Configuration {
+	extension UILabel {
  
-    	static var headlineConfiguration: UILabel.Configuration {
-        	return UILabel.Configuration(textStyle: UIFontTextStyleHeadline,
-            	                         textColor: UIColor.redColor(),
-                	                     numberOfLines: 0)
-    	}
-    	
-    	static func headlineConfiguration(alignment: NSTextAlignment = .Natural) -> UILabel.Configuration {
-        	return UILabel.Configuration(textStyle: UIFontTextStyleHeadline,
-            	                         textColor: UIColor.redColor(),
-            	                         textAlignment: alignment,
-                	                     numberOfLines: 0)
+    	static func makeHeadline(text: String) -> UILabel {
+        	return UILabel(text: withText,
+        				   textStyle: .headline,
+            	           textColor: .red,
+            	           textAlignment: .center,
+                	       numberOfLines: 0)
     	}
 	}
-
-	class MyViewController: UIViewController {
-	
-    	let headlineLabel = UILabel(configuration: UILabel.Configuration.headlineConfiguration)
-    	
-    	let centeredHeadlineLabel = UILabel(configuration: UILabel.Configuration.headlineConfiguration(.Center))
-	}
-	
-
- This syntax also becomes much neater in Swift 3:
  
  	class MyViewController: UIViewController {
-    	let headlineLabel = UILabel(configuration: .headlineConfiguration)
-    	let centeredHeadlineLabel = UILabel(configuration: .headlineConfiguration(.center))
+    	let headlineLabel = UILabel.makeHeadline(text: "My Detail View")
 	}
 	
 This greatly simplifies programmatic UI creation allowing for cleaner code that is easier to write and reason about.
+
+The same can be achieved for Foundation classes:
+
+	class MyViewController: UIViewController {
+	
+	 	let headlineLabel = UILabel.makeHeadline(text: "My Detail View")
+	 	
+    	let readFormatter = DateFormatter.RFC3339
+    	let writeFormatter = DateFormatter(dateType: styled(date: .long, time: .medium),
+                                           locale: Locale(identifier: "en_GB"),
+                                           timeZone: TimeZone(identifier: "Europe/London"))
+	}	
+
+Now your `viewDidLoad()` method can simply create the hierarchy without lots of boilerplate code setting up each view.
 
 ## Credits
 
